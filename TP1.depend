@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1461677420 source:c:\users\henrique\desktop\tp1\main.cpp
+	<iostream>
+	<GLFW/glfw3.h>
+
+1444695478 c:\users\henrique\desktop\tp1\glfw-3.1.2.bin.win32\include\glfw\glfw3.h
+	<stddef.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES3/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES3/gl2ext.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
