@@ -16,6 +16,7 @@ class Shader {
         GLuint program;
 
         Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath);
+        Shader();
         ~Shader();
 
         Shader &use();

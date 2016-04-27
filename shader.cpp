@@ -38,6 +38,9 @@ Shader::Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
         glDeleteShader(geometry);
 }
 
+Shader::Shader() {
+}
+
 Shader::~Shader() {
     glDeleteProgram(this->program);
 }
