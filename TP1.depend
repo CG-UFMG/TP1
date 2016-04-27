@@ -47,10 +47,10 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1461724681 source:c:\users\henrique\desktop\tp1\shader.cpp
+1461726173 source:c:\users\henrique\desktop\tp1\shader.cpp
 	"shader.h"
 
-1461724366 c:\users\henrique\desktop\tp1\shader.h
+1461726210 c:\users\henrique\desktop\tp1\shader.h
 	<string>
 	<fstream>
 	<sstream>
@@ -65,4 +65,13 @@
 	<Availability.h>
 	<OpenGL/glu.h>
 	<GL/glu.h>
+
+1461727484 source:c:\users\henrique\desktop\tp1\texture.cpp
+	"texture.h"
+
+1461727340 c:\users\henrique\desktop\tp1\texture.h
+	<GL/glew.h>
+	<SOIL.h>
+
+1215465208 c:\users\henrique\desktop\tp1\lib\soil\src\soil.h
 

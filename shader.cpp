@@ -1,8 +1,10 @@
 #include "shader.h"
 
+GLuint Shader::INFO_LOG_SIZE = 512;
+
 Shader::Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
     GLint success;
-    GLchar infoLog[Shader::INFO_LOG_SIZE];
+    GLchar infoLog[INFO_LOG_SIZE];
 
     // Compile vertex and fragment shader
     GLuint vertex = compileShader(openShaderFile(vPath), GL_VERTEX_SHADER);
@@ -24,7 +26,7 @@ Shader::Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
     glGetProgramiv(this->program, GL_LINK_STATUS, &success);
 
     if (!success) {
-        glGetProgramInfoLog(this->program, Shader::INFO_LOG_SIZE, NULL, infoLog);
+        glGetProgramInfoLog(this->program, INFO_LOG_SIZE, NULL, infoLog);
         cout << "ERROR: SHADER PROGRAM LINKING FAILED. " << infoLog << endl;
     }
 
@@ -66,7 +68,7 @@ const GLchar* Shader::openShaderFile(const GLchar* path) {
 
 GLuint Shader::compileShader(const GLchar* shader, GLenum shaderType) {
     GLint success;
-    GLchar infoLog[Shader::INFO_LOG_SIZE];
+    GLchar infoLog[INFO_LOG_SIZE];
     GLuint tmpShader = glCreateShader(shaderType);
 
     glShaderSource(tmpShader, 1, &shader, NULL);
@@ -74,7 +76,7 @@ GLuint Shader::compileShader(const GLchar* shader, GLenum shaderType) {
     glGetShaderiv(tmpShader, GL_COMPILE_STATUS, &success);
 
     if (!success) {
-        glGetShaderInfoLog(tmpShader, Shader::INFO_LOG_SIZE, NULL, infoLog);
+        glGetShaderInfoLog(tmpShader, INFO_LOG_SIZE, NULL, infoLog);
         cout << "ERROR: SHADER:: " << shaderType << " COMPILATION FAILED. " << infoLog << endl;
     }
 
