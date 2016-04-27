@@ -1,7 +1,9 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
+#define GLEW_STATIC
 #include <GL/glew.h>
+
 #include <SOIL.h>
 
 class Texture {

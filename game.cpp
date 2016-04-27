@@ -20,6 +20,6 @@ void Game::update(GLfloat delta) {
 
 }
 
-void Game::render(GLfloat delta) {
+void Game::render() {
 
 }

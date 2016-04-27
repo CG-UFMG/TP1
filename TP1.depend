@@ -1,7 +1,9 @@
 # depslib dependency file v1.0
-1461730436 source:c:\users\henrique\desktop\tp1\main.cpp
-	"resource_manager.h"
+1461734175 source:c:\users\henrique\desktop\tp1\main.cpp
+	<GL/glew.h>
 	<GLFW/glfw3.h>
+	"game.h"
+	"resource_manager.h"
 
 1444695478 c:\users\henrique\desktop\tp1\glfw-3.1.2.bin.win32\include\glfw\glfw3.h
 	<stddef.h>
@@ -22,10 +24,10 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1461679887 source:c:\users\henrique\desktop\tp1\game.cpp
+1461731408 source:c:\users\henrique\desktop\tp1\game.cpp
 	"game.h"
 
-1461679878 c:\users\henrique\desktop\tp1\game.h
+1461731404 c:\users\henrique\desktop\tp1\game.h
 	<GLFW/glfw3.h>
 
 1444695478 c:\users\henrique\desktop\tp1\lib\glfw-3.1.2.bin.win32\include\glfw\glfw3.h
@@ -50,12 +52,12 @@
 1461731107 source:c:\users\henrique\desktop\tp1\shader.cpp
 	"shader.h"
 
-1461731078 c:\users\henrique\desktop\tp1\shader.h
+1461734262 c:\users\henrique\desktop\tp1\shader.h
+	<GL/glew.h>
 	<string>
 	<fstream>
 	<sstream>
 	<iostream>
-	<GL/glew.h>
 
 1439254490 c:\users\henrique\desktop\tp1\lib\glew-1.13.0\include\gl\glew.h
 	<stddef.h>
@@ -69,19 +71,27 @@
 1461727484 source:c:\users\henrique\desktop\tp1\texture.cpp
 	"texture.h"
 
-1461727340 c:\users\henrique\desktop\tp1\texture.h
+1461734281 c:\users\henrique\desktop\tp1\texture.h
 	<GL/glew.h>
 	<SOIL.h>
 
 1215465208 c:\users\henrique\desktop\tp1\lib\soil\src\soil.h
 
-1461729781 source:c:\users\henrique\desktop\tp1\resource_manager.cpp
+1461731149 source:c:\users\henrique\desktop\tp1\resource_manager.cpp
 	"resource_manager.h"
 
-1461730556 c:\users\henrique\desktop\tp1\resource_manager.h
+1461732033 c:\users\henrique\desktop\tp1\resource_manager.h
 	<map>
 	<string>
-	<GL/glew.h>
 	"texture.h"
 	"shader.h"
+
+1461732956 c:\users\henrique\desktop\tp1\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
 

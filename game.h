@@ -13,7 +13,7 @@ class Game {
         void init();
         void processInput(GLfloat delta);
         void update(GLfloat delta);
-        void render(GLfloat delta);
+        void render();
 };
 
 #endif
