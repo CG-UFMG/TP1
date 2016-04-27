@@ -1,6 +1,6 @@
 # depslib dependency file v1.0
-1461724912 source:c:\users\henrique\desktop\tp1\main.cpp
-	"shader.h"
+1461724925 source:c:\users\henrique\desktop\tp1\main.cpp
+	"game.h"
 	<GLFW/glfw3.h>
 
 1444695478 c:\users\henrique\desktop\tp1\glfw-3.1.2.bin.win32\include\glfw\glfw3.h

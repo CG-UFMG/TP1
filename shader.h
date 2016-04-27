@@ -13,10 +13,10 @@ class Shader {
     public:
         GLuint program;
 
-        Shader(const GLchar* vPath, const GLchar* fPath);
+        Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath);
         ~Shader();
 
-        void use();
+        Shader &use();
 
     private:
         static const GLuint INFO_LOG_SIZE = 512;

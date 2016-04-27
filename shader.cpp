@@ -1,17 +1,25 @@
 #include "shader.h"
 
-Shader::Shader(const GLchar* vPath, const GLchar* fPath) {
+Shader::Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
     GLint success;
     GLchar infoLog[Shader::INFO_LOG_SIZE];
 
     // Compile vertex and fragment shader
     GLuint vertex = compileShader(openShaderFile(vPath), GL_VERTEX_SHADER);
     GLuint fragment = compileShader(openShaderFile(fPath), GL_FRAGMENT_SHADER);
+    GLuint geometry;
+
+    if (gPath != NULL)
+        geometry = compileShader(openShaderFile(gPath), GL_GEOMETRY_SHADER);
 
     // Shader Program
     this->program = glCreateProgram();
     glAttachShader(this->program, vertex);
     glAttachShader(this->program, fragment);
+
+    if (gPath != NULL)
+        glAttachShader(this->program, geometry);
+
     glLinkProgram(this->program);
     glGetProgramiv(this->program, GL_LINK_STATUS, &success);
 
@@ -23,14 +31,18 @@ Shader::Shader(const GLchar* vPath, const GLchar* fPath) {
     // Delete shaders
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+
+    if (gPath != NULL)
+        glDeleteShader(geometry);
 }
 
 Shader::~Shader() {
     glDeleteProgram(this->program);
 }
 
-void Shader::use() {
+Shader &Shader::use() {
     glUseProgram(this->program);
+    return *this;
 }
 
 const GLchar* Shader::openShaderFile(const GLchar* path) {
@@ -46,7 +58,7 @@ const GLchar* Shader::openShaderFile(const GLchar* path) {
         file.close();
         code = stream.str();
     } catch (ifstream::failure ex) {
-        cout << "ERROR: SHADER::" << path << " NOT READ." << endl;
+        cout << "ERROR: FILE::" << path << " NOT READ." << endl;
     }
 
     return code.c_str();
