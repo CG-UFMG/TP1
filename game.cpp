@@ -12,14 +12,14 @@ void Game::init() {
 
 }
 
-void Game::processInput() {
+void Game::processInput(GLfloat delta) {
 
 }
 
-void Game::update() {
+void Game::update(GLfloat delta) {
 
 }
 
-void Game::render() {
+void Game::render(GLfloat delta) {
 
 }

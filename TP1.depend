@@ -1,6 +1,6 @@
 # depslib dependency file v1.0
-1461677420 source:c:\users\henrique\desktop\tp1\main.cpp
-	<iostream>
+1461724912 source:c:\users\henrique\desktop\tp1\main.cpp
+	"shader.h"
 	<GLFW/glfw3.h>
 
 1444695478 c:\users\henrique\desktop\tp1\glfw-3.1.2.bin.win32\include\glfw\glfw3.h
@@ -22,10 +22,10 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1461679152 source:c:\users\henrique\desktop\tp1\game.cpp
+1461679887 source:c:\users\henrique\desktop\tp1\game.cpp
 	"game.h"
 
-1461679096 c:\users\henrique\desktop\tp1\game.h
+1461679878 c:\users\henrique\desktop\tp1\game.h
 	<GLFW/glfw3.h>
 
 1444695478 c:\users\henrique\desktop\tp1\lib\glfw-3.1.2.bin.win32\include\glfw\glfw3.h
@@ -45,5 +45,24 @@
 	<GLES3/gl2ext.h>
 	<GL/gl.h>
 	<GL/glext.h>
+	<GL/glu.h>
+
+1461724681 source:c:\users\henrique\desktop\tp1\shader.cpp
+	"shader.h"
+
+1461724366 c:\users\henrique\desktop\tp1\shader.h
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+	<GL/glew.h>
+
+1439254490 c:\users\henrique\desktop\tp1\lib\glew-1.13.0\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
 	<GL/glu.h>
 

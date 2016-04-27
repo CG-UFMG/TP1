@@ -11,9 +11,9 @@ class Game {
         ~Game();
 
         void init();
-        void processInput();
-        void update();
-        void render();
+        void processInput(GLfloat delta);
+        void update(GLfloat delta);
+        void render(GLfloat delta);
 };
 
 #endif

@@ -13,7 +13,17 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="lib/glfw-3.1.2.bin.WIN32/include" />
+					<Add directory="lib/glew-1.13.0/include" />
 				</Compiler>
+				<Linker>
+					<Add library="glew32" />
+					<Add library="glfw3" />
+					<Add library="gdi32" />
+					<Add library="opengl32" />
+					<Add directory="lib/glfw-3.1.2.bin.WIN32/lib-mingw" />
+					<Add directory="lib/glew-1.13.0/bin/Release/Win32" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/TP1" prefix_auto="1" extension_auto="1" />
@@ -32,7 +42,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="shader.cpp" />
+		<Unit filename="shader.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

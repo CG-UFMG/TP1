@@ -1,5 +1,6 @@
-#include <GLFW/glfw3.h>
 #include "game.h"
+
+#include <GLFW/glfw3.h>
 
 const GLuint SCR_WIDTH = 800;
 const GLuint SCR_HEIGHT = 600;
@@ -44,7 +45,7 @@ int main() {
 }
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode) {
-    // When a user presses the Q key, we set the WindowShouldClose property to true, closing the application
+    // When a user presses the Q key, closing the application
     if (key == GLFW_KEY_Q && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
 }
