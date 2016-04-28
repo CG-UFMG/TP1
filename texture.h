@@ -17,11 +17,9 @@ class Texture {
         GLuint filterMax;
 
         Texture();
-        ~Texture();
 
-        Texture &generateFromFile(const GLchar* path, GLboolean alpha);
-
-        void bind() const;
+        void generateTexture(const GLchar* path, GLboolean alpha);
+        void bindTex() const;
 };
 
 #endif // TEXTURE_H

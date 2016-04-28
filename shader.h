@@ -20,11 +20,8 @@ class Shader {
 
         GLuint program;
 
-        Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath);
-        Shader();
-        ~Shader();
-
-        Shader &use();
+        void compile(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath);
+        void use();
 
         void setFloat    (const GLchar *name, GLfloat value, GLboolean useShader = false);
         void setInteger  (const GLchar *name, GLint value, GLboolean useShader = false);

@@ -8,11 +8,12 @@
 const GLuint SCR_WIDTH = 800;
 const GLuint SCR_HEIGHT = 600;
 
+Game game(SCR_WIDTH, SCR_HEIGHT);
+
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
 int main() {
     GLFWwindow* window;
-    Game game(SCR_WIDTH, SCR_HEIGHT);
     GLfloat delta = 0.0f;
     GLfloat lastFrame = 0.0f;
 
@@ -30,20 +31,20 @@ int main() {
         glfwTerminate();
         return -1;
     }
-
     glfwMakeContextCurrent(window);
 
     glewExperimental = GL_TRUE;
     glewInit();
+    if (glewInit() != GLEW_OK)
+        return -1;
     glGetError();
 
-    glfwSetKeyCallback(window, keyCallback);
-
-    // OpenGL
     glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
     glEnable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    glfwSetKeyCallback(window, keyCallback);
 
     game.init();
 
@@ -54,13 +55,14 @@ int main() {
 
         glfwPollEvents();
 
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         game.processInput(delta);
         game.update(delta);
 
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         game.render();
@@ -78,4 +80,11 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
     // When a user presses the Q key, closing the application
     if (key == GLFW_KEY_Q && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
+    if (key >= 0 && key < 1024)
+    {
+        if (action == GLFW_PRESS)
+            game.keys[key] = GL_TRUE;
+        else if (action == GLFW_RELEASE)
+            game.keys[key] = GL_FALSE;
+    }
 }

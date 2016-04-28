@@ -2,7 +2,7 @@
 
 GLuint Shader::INFO_LOG_SIZE = 512;
 
-Shader::Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
+void Shader::compile(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
     GLint success;
     GLchar infoLog[INFO_LOG_SIZE];
 
@@ -38,16 +38,8 @@ Shader::Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
         glDeleteShader(geometry);
 }
 
-Shader::Shader() {
-}
-
-Shader::~Shader() {
-    glDeleteProgram(this->program);
-}
-
-Shader &Shader::use() {
+void Shader::use() {
     glUseProgram(this->program);
-    return *this;
 }
 
 void Shader::setFloat(const GLchar *name, GLfloat value, GLboolean useShader) {

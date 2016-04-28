@@ -4,11 +4,7 @@ Texture::Texture() : internalFormat(GL_RGB), imageFormat(GL_RGB), wrapS(GL_REPEA
     glGenTextures(1, &this->texId);
 }
 
-Texture::~Texture() {
-    glDeleteTextures(1, &this->texId);
-}
-
-Texture &Texture::generateFromFile(const GLchar* path, GLboolean alpha) {
+void Texture::generateTexture(const GLchar* path, GLboolean alpha) {
     int width, height;
     unsigned char* image;
 
@@ -27,12 +23,10 @@ Texture &Texture::generateFromFile(const GLchar* path, GLboolean alpha) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, this->filterMin);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, this->filterMax);
 
-    glBindTexture(GL_TEXTURE_2D, 0);
     SOIL_free_image_data(image);
-
-    return *this;
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture::bind() const {
+void Texture::bindTex() const {
     glBindTexture(GL_TEXTURE_2D, this->texId);
 }
