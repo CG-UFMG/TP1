@@ -12,12 +12,26 @@
 
 using namespace std;
 
+enum BlockColor {
+    SOLID = 1,
+    GREEN,
+    RED,
+    BLUE,
+    GRAY,
+    WHITE,
+    YELLOW,
+    MEDIUM_AQUAMARINE,
+    PINK,
+    SALMON,
+    OLD_GOLD,
+    SCARLET
+};
+
 class BreakoutLevel {
     public:
         vector<RenderObject> blocks;
 
-        BreakoutLevel() {
-        }
+        BreakoutLevel() { }
 
         void loadLevel(const GLchar *file, GLuint levelWidth, GLuint levelHeight);
         void drawLevel(SpriteRenderer &renderer);

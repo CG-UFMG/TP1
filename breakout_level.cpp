@@ -46,27 +46,55 @@ void BreakoutLevel::init(vector<vector<GLuint> > tileData, GLuint levelWidth, GL
 
     for (GLuint y = 0; y < height; ++y) {
         for (GLuint x = 0; x < width; ++x) {
-            if (tileData[y][x] == 1) {
-                glm::vec2 pos(unit_width * x, unit_height * y);
-                glm::vec2 size(unit_width, unit_height);
-                RenderObject obj(pos, size, ResourceManager::getTexture("block_solid"), glm::vec3(0.8f, 0.8f, 0.7f));
-                obj.isSolid = GL_TRUE;
-                this->blocks.push_back(obj);
-            }
-            else if (tileData[y][x] > 1) {
-                glm::vec3 color = glm::vec3(1.0f);
-                if (tileData[y][x] == 2)
-                    color = glm::vec3(0.2f, 0.6f, 1.0f);
-                else if (tileData[y][x] == 3)
-                    color = glm::vec3(0.0f, 0.7f, 0.0f);
-                else if (tileData[y][x] == 4)
-                    color = glm::vec3(0.8f, 0.8f, 0.4f);
-                else if (tileData[y][x] == 5)
-                    color = glm::vec3(1.0f, 0.5f, 0.0f);
+            if (tileData[y][x] != 0) {
+                BlockColor color = static_cast<BlockColor>(tileData[y][x]);
+                RenderObject obj(glm::vec2(unit_width * x, unit_height * y), glm::vec2(unit_width, unit_height), ResourceManager::getTexture("block"));
 
-                glm::vec2 pos(unit_width * x, unit_height * y);
-                glm::vec2 size(unit_width, unit_height);
-                this->blocks.push_back(RenderObject(pos, size, ResourceManager::getTexture("block"), color));
+                switch(color) {
+                case SOLID:
+                    obj.color = glm::vec3(0.8f, 0.8f, 0.7f);
+                    obj.sprite = ResourceManager::getTexture("block_solid");
+                    obj.isSolid = GL_TRUE;
+                    break;
+                case GREEN:
+                    obj.color = glm::vec3(0.0f, 1.0f, 0.0f);
+                    break;
+                case RED:
+                    obj.color = glm::vec3(1.0f, 0.0f, 0.0f);
+                    break;
+                case BLUE:
+                    obj.color = glm::vec3(0.0f, 0.0f, 1.0f);
+                    break;
+                case WHITE:
+                    obj.color = glm::vec3(1.0f);
+                    break;
+                case GRAY:
+                    obj.color = glm::vec3(0.50f, 0.50f, 0.50f);
+                    break;
+                case YELLOW:
+                    obj.color = glm::vec3(1.0f, 1.0f, 0.0f);
+                    break;
+                case SCARLET:
+                    obj.color = glm::vec3(0.55f, 0.9f, 0.9f);
+                    break;
+                case OLD_GOLD:
+                    obj.color = glm::vec3(0.81f, 0.71f, 0.23f);
+                    break;
+                case SALMON:
+                    obj.color = glm::vec3(0.435294f, 0.258824f, 0.258824f);
+                    break;
+                case PINK:
+                    obj.color = glm::vec3(0.737255f, 0.560784f, 0.560784f);
+                    break;
+                case MEDIUM_AQUAMARINE:
+                    obj.color = glm::vec3(0.196078f, 0.8f, 0.6f);
+                    break;
+                default:
+                    obj.color = glm::vec3(0.372549f, 0.623529f, 0.623529f);
+                    break;
+                }
+
+                this->blocks.push_back(obj);
             }
         }
     }
