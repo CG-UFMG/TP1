@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game(GLuint width, GLuint height) : width(width), height(height) {
+Game::Game(GLuint width, GLuint height) : width(width), height(height), state(GAME_ACTIVE) {
 
 }
 
@@ -28,13 +28,17 @@ void Game::init() {
     BreakoutLevel basic;
     basic.loadLevel("levels/basic.blv", this->width, this->height * 0.5);
 
+    // Load player
+    player = Player(this->width, this->height);
+
     // Load basic level
     this->levels.push_back(basic);
     this->currentLevel = 0;
 }
 
 void Game::processInput(GLfloat delta) {
-
+    if (this->state == GAME_ACTIVE) {
+    }
 }
 
 void Game::update(GLfloat delta) {
@@ -42,7 +46,15 @@ void Game::update(GLfloat delta) {
 }
 
 void Game::render() {
-    renderer->drawSprite(ResourceManager::getTexture("background"), glm::vec2(0, 0), glm::vec2(this->width, this->height), 0.0f);
-
-    this->levels[this->currentLevel].drawLevel(*renderer);
+    switch(this->state) {
+    case GAME_ACTIVE:
+        renderer->drawSprite(ResourceManager::getTexture("background"), glm::vec2(0, 0), glm::vec2(this->width, this->height), 0.0f);
+        this->levels[this->currentLevel].drawLevel(*renderer);
+        this->player.draw(*renderer);
+        break;
+    case GAME_MENU:
+        break;
+    case GAME_WIN:
+        break;
+    }
 }
