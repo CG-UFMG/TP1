@@ -5,6 +5,7 @@
 #include "sprite_renderer.h"
 #include "breakout_level.h"
 #include "player.h"
+#include "text_renderer.h"
 
 #include <GLFW/glfw3.h>
 #include <vector>
@@ -29,6 +30,7 @@ class Game {
         GLuint currentLevel;
 
         SpriteRenderer *renderer;
+        TextRenderer *textRenderer;
 
         Game(GLuint width, GLuint height);
         ~Game();

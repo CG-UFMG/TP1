@@ -10,10 +10,14 @@ Game::~Game() {
 void Game::init() {
     // Load shaders
     ResourceManager::loadShader("shaders/sprite.vs", "shaders/sprite.frag", NULL, "sprite");
+    ResourceManager::loadShader("shaders/text.vs", "shaders/text.frag", NULL, "text");
 
     // Configure shaders
-    glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->width), static_cast<GLfloat>(this->height), 0.0f, -1.0f, 1.0f);
-    ResourceManager::getShader("sprite").use().setInteger("image", 0).setMatrix4("projection", projection);
+    glm::mat4 spriteProjection = glm::ortho(0.0f, static_cast<GLfloat>(this->width), static_cast<GLfloat>(this->height), 0.0f, -1.0f, 1.0f);
+    glm::mat4 textProjection = glm::ortho(0.0f, static_cast<GLfloat>(this->width), 0.0f, static_cast<GLfloat>(this->height));
+
+    ResourceManager::getShader("sprite").use().setInteger("image", 0).setMatrix4("projection", spriteProjection);
+    ResourceManager::getShader("text").use().setMatrix4("projection", textProjection);
 
     // Load textures
     ResourceManager::loadTexture("textures/background.jpg", GL_FALSE, "background");
@@ -23,6 +27,7 @@ void Game::init() {
 
     // Set render-specific controls
     renderer = new SpriteRenderer(ResourceManager::getShader("sprite"));
+    textRenderer = new TextRenderer(ResourceManager::getShader("text"));
 
     // Load levels
     BreakoutLevel basic;
@@ -57,9 +62,6 @@ void Game::update(GLfloat delta) {
 void Game::render() {
     switch(this->state) {
     case GAME_ACTIVE:
-        renderer->drawSprite(ResourceManager::getTexture("background"), glm::vec2(0, 0), glm::vec2(this->width, this->height), 0.0f);
-        this->levels[this->currentLevel].drawLevel(*renderer);
-        this->player.draw(*renderer);
         break;
     case GAME_MENU:
         break;
@@ -68,6 +70,10 @@ void Game::render() {
     case GAME_PAUSE:
         break;
     }
+
+    renderer->drawSprite(ResourceManager::getTexture("background"), glm::vec2(0, 0), glm::vec2(this->width, this->height), 0.0f);
+    this->levels[this->currentLevel].drawLevel(*renderer);
+    this->player.draw(*renderer);
 }
 
 void Game::pauseOrContinue() {
