@@ -11,6 +11,9 @@ const GLuint SCR_HEIGHT = 600;
 Game game(SCR_WIDTH, SCR_HEIGHT);
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
+void mouseCallback(GLFWwindow* window, int button, int action, int mods);
+void cursorEnterCallback(GLFWwindow* window, int entered);
+void cursorPosCallback(GLFWwindow* window, double xpos, double ypos);
 
 int main() {
     GLFWwindow* window;
@@ -45,10 +48,14 @@ int main() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glfwSetKeyCallback(window, keyCallback);
+    glfwSetMouseButtonCallback(window, mouseCallback);
+    glfwSetCursorEnterCallback(window, cursorEnterCallback);
+//    glfwSetCursorPosCallback(window, cursorPosCallback);
 
     game.init();
 
     while (!glfwWindowShouldClose(window)) {
+        double xpos, ypos;
         GLfloat currentFrame = glfwGetTime();
         delta = currentFrame - lastFrame;
         lastFrame = currentFrame;
@@ -57,8 +64,9 @@ int main() {
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        glfwGetCursorPos(window, &xpos, &ypos);
 
-        game.processInput(delta);
+        game.movePlayer(delta, xpos, ypos);
         game.update(delta);
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -78,4 +86,21 @@ int main() {
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode) {
     if (key == GLFW_KEY_Q && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
+    else if (key == GLFW_KEY_R && action == GLFW_PRESS)
+        game.reset();
+}
+
+void mouseCallback(GLFWwindow* window, int button, int action, int mods) {
+    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
+        game.pauseOrContinue();
+}
+
+void cursorEnterCallback(GLFWwindow* window, int entered) {
+    if (entered)
+        game.playerEnabled = GL_TRUE;
+    else
+        game.playerEnabled = GL_FALSE;
+}
+
+void cursorPosCallback(GLFWwindow* window, double xpos, double ypos) {
 }

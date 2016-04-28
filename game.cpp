@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game(GLuint width, GLuint height) : width(width), height(height), state(GAME_ACTIVE) {
+Game::Game(GLuint width, GLuint height) : width(width), height(height), state(GAME_ACTIVE), playerEnabled(GL_TRUE) {
 
 }
 
@@ -36,8 +36,17 @@ void Game::init() {
     this->currentLevel = 0;
 }
 
-void Game::processInput(GLfloat delta) {
-    if (this->state == GAME_ACTIVE) {
+void Game::movePlayer(GLfloat delta, double xpos, double ypos) {
+    if (this->state == GAME_ACTIVE && this->playerEnabled) {
+
+        if (xpos < 400)
+            xpos = -(int)(this->width / 2) + xpos;
+        if (xpos > 400)
+            xpos = -((int)(this->width / 2) - xpos);
+        if (xpos == 400)
+            xpos = 0;
+
+        this->player.move(delta, xpos, ypos);
     }
 }
 
@@ -56,5 +65,19 @@ void Game::render() {
         break;
     case GAME_WIN:
         break;
+    case GAME_PAUSE:
+        break;
     }
+}
+
+void Game::pauseOrContinue() {
+    if (this->state == GAME_ACTIVE)
+        this->state = GAME_PAUSE;
+    else if (this->state == GAME_PAUSE)
+        this->state = GAME_ACTIVE;
+}
+
+void Game::reset() {
+    this->currentLevel = 0;
+    this->player.reset();
 }
