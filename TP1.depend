@@ -556,7 +556,7 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1461871815 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1461872754 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
 1461872165 c:\users\henriquejonas\desktop\tp1\game.h
@@ -1120,10 +1120,20 @@
 1461870719 source:c:\users\henriquejonas\desktop\tp1\player.cpp
 	"player.h"
 
-1461872078 c:\users\henriquejonas\desktop\tp1\text_renderer.h
+1461872742 c:\users\henriquejonas\desktop\tp1\text_renderer.h
 	<string>
+	<map>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<ft2build.h>
 	"shader.h"
 
-1461872148 source:c:\users\henriquejonas\desktop\tp1\text_renderer.cpp
+1461872876 source:c:\users\henriquejonas\desktop\tp1\text_renderer.cpp
 	"text_renderer.h"
+
+1461871549 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\ft2build.h
+	<freetype/config/ftheader.h>
+
+1461871550 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\freetype\config\ftheader.h
 

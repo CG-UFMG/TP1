@@ -27,7 +27,7 @@ void Game::init() {
 
     // Set render-specific controls
     renderer = new SpriteRenderer(ResourceManager::getShader("sprite"));
-    textRenderer = new TextRenderer(ResourceManager::getShader("text"));
+    textRenderer = new TextRenderer(ResourceManager::getShader("text"), "fonts/arial.ttf");
 
     // Load levels
     BreakoutLevel basic;
