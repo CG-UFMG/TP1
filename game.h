@@ -18,6 +18,8 @@ class Game {
         vector<BreakoutLevel> levels;
         GLuint currentLevel;
 
+        SpriteRenderer *renderer;
+
         Game(GLuint width, GLuint height);
         ~Game();
 

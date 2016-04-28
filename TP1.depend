@@ -556,10 +556,10 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1461853773 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1461860387 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1461852023 c:\users\henriquejonas\desktop\tp1\game.h
+1461860392 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
@@ -1069,7 +1069,7 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1461853534 source:c:\users\henriquejonas\desktop\tp1\main.cpp
+1461860027 source:c:\users\henriquejonas\desktop\tp1\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"game.h"
@@ -1081,10 +1081,10 @@
 1461853686 source:c:\users\henriquejonas\desktop\tp1\shader.cpp
 	"shader.h"
 
-1461853823 source:c:\users\henriquejonas\desktop\tp1\sprite_renderer.cpp
+1461860043 source:c:\users\henriquejonas\desktop\tp1\sprite_renderer.cpp
 	"sprite_renderer.h"
 
-1461849492 source:c:\users\henriquejonas\desktop\tp1\texture.cpp
+1461854450 source:c:\users\henriquejonas\desktop\tp1\texture.cpp
 	"texture.h"
 
 1461850765 source:c:\users\henriquejonas\desktop\tp1\render_object.cpp

@@ -8,15 +8,16 @@ SpriteRenderer::SpriteRenderer(const Shader &shader) {
 void SpriteRenderer::drawSprite(const Texture &texture, glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color) {
     this->shader.use();
 
-    glm::mat4 model = glm::translate(model, glm::vec3(position, 0.0f));
+    glm::mat4 model;
 
+    model = glm::translate(model, glm::vec3(position, 0.0f));
     model = glm::translate(model, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.0f));
     model = glm::rotate(model, rotate, glm::vec3(0.0f, 0.0f, 1.0f));
     model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f));
     model = glm::scale(model, glm::vec3(size, 1.0f));
 
-    this->shader.setMatrix4("model", model);
-    this->shader.setVector3f("spriteColor", color);
+    this->shader.setMatrix4("model", model, 0);
+    this->shader.setVector3f("spriteColor", color, 0);
 
     glActiveTexture(GL_TEXTURE0);
     texture.bindTex();

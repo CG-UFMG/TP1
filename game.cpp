@@ -1,7 +1,5 @@
 #include "game.h"
 
-SpriteRenderer *renderer;
-
 Game::Game(GLuint width, GLuint height) : width(width), height(height) {
 
 }
@@ -16,7 +14,7 @@ void Game::init() {
     // Configure shaders
     glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->width), static_cast<GLfloat>(this->height), 0.0f, -1.0f, 1.0f);
     ResourceManager::getShader("sprite").use();
-    ResourceManager::getShader("sprite").setInteger("sprite", 0);
+    ResourceManager::getShader("sprite").setInteger("image", 0);
     ResourceManager::getShader("sprite").setMatrix4("projection", projection);
 
     // Load textures
