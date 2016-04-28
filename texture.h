@@ -16,10 +16,10 @@ class Texture {
         GLuint filterMin;
         GLuint filterMax;
 
-        Texture();
+        Texture() { }
+        Texture(const GLchar* path, GLboolean alpha);
 
-        void generateTexture(const GLchar* path, GLboolean alpha);
-        void bindTex() const;
+        void bindTexture() const;
 };
 
 #endif // TEXTURE_H

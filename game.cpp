@@ -13,9 +13,7 @@ void Game::init() {
 
     // Configure shaders
     glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->width), static_cast<GLfloat>(this->height), 0.0f, -1.0f, 1.0f);
-    ResourceManager::getShader("sprite").use();
-    ResourceManager::getShader("sprite").setInteger("image", 0);
-    ResourceManager::getShader("sprite").setMatrix4("projection", projection);
+    ResourceManager::getShader("sprite").use().setInteger("image", 0).setMatrix4("projection", projection);
 
     // Load textures
     ResourceManager::loadTexture("textures/background.jpg", GL_FALSE, "background");

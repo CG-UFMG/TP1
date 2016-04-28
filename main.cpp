@@ -61,7 +61,6 @@ int main() {
         game.processInput(delta);
         game.update(delta);
 
-
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
@@ -77,14 +76,6 @@ int main() {
 }
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode) {
-    // When a user presses the Q key, closing the application
     if (key == GLFW_KEY_Q && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
-    if (key >= 0 && key < 1024)
-    {
-        if (action == GLFW_PRESS)
-            game.keys[key] = GL_TRUE;
-        else if (action == GLFW_RELEASE)
-            game.keys[key] = GL_FALSE;
-    }
 }

@@ -13,7 +13,6 @@ using namespace std;
 class Game {
     public:
         GLuint width, height;
-        GLboolean keys[1024];
 
         vector<BreakoutLevel> levels;
         GLuint currentLevel;

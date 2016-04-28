@@ -2,7 +2,7 @@
 
 GLuint Shader::INFO_LOG_SIZE = 512;
 
-void Shader::compile(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
+Shader::Shader(const GLchar* vPath, const GLchar* fPath, const GLchar* gPath) {
     GLint success;
     GLchar infoLog[INFO_LOG_SIZE];
 
@@ -38,62 +38,72 @@ void Shader::compile(const GLchar* vPath, const GLchar* fPath, const GLchar* gPa
         glDeleteShader(geometry);
 }
 
-void Shader::use() {
+Shader &Shader::use() {
     glUseProgram(this->program);
+    return *this;
 }
 
-void Shader::setFloat(const GLchar *name, GLfloat value, GLboolean useShader) {
+Shader &Shader::setFloat(const GLchar *name, GLfloat value, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniform1f(glGetUniformLocation(this->program, name), value);
+    return *this;
 }
 
-void Shader::setInteger(const GLchar *name, GLint value, GLboolean useShader) {
+Shader &Shader::setInteger(const GLchar *name, GLint value, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniform1i(glGetUniformLocation(this->program, name), value);
+    return *this;
 }
 
-void Shader::setVector2f(const GLchar *name, GLfloat x, GLfloat y, GLboolean useShader) {
+Shader &Shader::setVector2f(const GLchar *name, GLfloat x, GLfloat y, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniform2f(glGetUniformLocation(this->program, name), x, y);
+    return *this;
 }
 
-void Shader::setVector2f(const GLchar *name, const glm::vec2 &value, GLboolean useShader) {
+Shader &Shader::setVector2f(const GLchar *name, const glm::vec2 &value, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniform2f(glGetUniformLocation(this->program, name), value.x, value.y);
+    return *this;
 }
 
-void Shader::setVector3f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLboolean useShader) {
+Shader &Shader::setVector3f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniform3f(glGetUniformLocation(this->program, name), x, y, z);
+    return *this;
 }
 
-void Shader::setVector3f(const GLchar *name, const glm::vec3 &value, GLboolean useShader) {
+Shader &Shader::setVector3f(const GLchar *name, const glm::vec3 &value, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniform3f(glGetUniformLocation(this->program, name), value.x, value.y, value.z);
+    return *this;
 }
 
-void Shader::setVector4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, GLboolean useShader) {
+Shader &Shader::setVector4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniform4f(glGetUniformLocation(this->program, name), x, y, z, w);
+    return *this;
 }
 
-void Shader::setVector4f(const GLchar *name, const glm::vec4 &value, GLboolean useShader) {
+Shader &Shader::setVector4f(const GLchar *name, const glm::vec4 &value, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniform4f(glGetUniformLocation(this->program, name), value.x, value.y, value.z, value.w);
+    return *this;
 }
 
-void Shader::setMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader) {
+Shader &Shader::setMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader) {
     if (useShader)
         this->use();
     glUniformMatrix4fv(glGetUniformLocation(this->program, name), 1, GL_FALSE, glm::value_ptr(matrix));
+    return *this;
 }
 
 const GLchar* Shader::openShaderFile(const GLchar* path) {

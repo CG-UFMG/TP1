@@ -1,10 +1,7 @@
 #include "texture.h"
 
-Texture::Texture() : internalFormat(GL_RGB), imageFormat(GL_RGB), wrapS(GL_REPEAT), wrapT(GL_REPEAT), filterMin(GL_LINEAR), filterMax(GL_LINEAR) {
-    glGenTextures(1, &this->texId);
-}
-
-void Texture::generateTexture(const GLchar* path, GLboolean alpha) {
+Texture::Texture(const GLchar* path, GLboolean alpha)
+    : internalFormat(GL_RGB), imageFormat(GL_RGB), wrapS(GL_REPEAT), wrapT(GL_REPEAT), filterMin(GL_LINEAR), filterMax(GL_LINEAR) {
     int width, height;
     unsigned char* image;
 
@@ -15,6 +12,7 @@ void Texture::generateTexture(const GLchar* path, GLboolean alpha) {
 
     image = SOIL_load_image(path, &width, &height, 0, this->imageFormat == GL_RGBA ? SOIL_LOAD_RGBA : SOIL_LOAD_RGB);
 
+    glGenTextures(1, &this->texId);
     glBindTexture(GL_TEXTURE_2D, this->texId);
     glTexImage2D(GL_TEXTURE_2D, 0, this->internalFormat, width, height, 0, this->imageFormat, GL_UNSIGNED_BYTE, image);
 
@@ -27,6 +25,6 @@ void Texture::generateTexture(const GLchar* path, GLboolean alpha) {
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture::bindTex() const {
+void Texture::bindTexture() const {
     glBindTexture(GL_TEXTURE_2D, this->texId);
 }

@@ -4,10 +4,7 @@ map<string, Texture> ResourceManager::textures;
 map<string, Shader> ResourceManager::shaders;
 
 Shader ResourceManager::loadShader(const GLchar *shaderPath, const GLchar *fragmentPath, const GLchar *geometryPath, string name) {
-    Shader shader;
-    shader.compile(shaderPath, fragmentPath, geometryPath);
-    shaders[name] = shader;
-
+    shaders[name] = Shader(shaderPath, fragmentPath, geometryPath);
     return shaders[name];
 }
 
@@ -16,10 +13,7 @@ Shader ResourceManager::getShader(string name) {
 }
 
 Texture ResourceManager::loadTexture(const GLchar *path, GLboolean alpha, string name) {
-    Texture texture;
-    texture.generateTexture(path, alpha);
-    textures[name] = texture;
-
+    textures[name] = Texture(path, alpha);
     return textures[name];
 }
 

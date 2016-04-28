@@ -556,10 +556,10 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1461860387 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1461862023 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1461860392 c:\users\henriquejonas\desktop\tp1\game.h
+1461860445 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
@@ -572,7 +572,7 @@
 	"texture.h"
 	"shader.h"
 
-1461849495 c:\users\henriquejonas\desktop\tp1\texture.h
+1461862206 c:\users\henriquejonas\desktop\tp1\texture.h
 	<GL/glew.h>
 	<SOIL.h>
 
@@ -587,7 +587,7 @@
 
 1461817613 c:\users\henriquejonas\desktop\tp1\lib\soil\src\soil.h
 
-1461853694 c:\users\henriquejonas\desktop\tp1\shader.h
+1461862153 c:\users\henriquejonas\desktop\tp1\shader.h
 	<GL/glew.h>
 	<string>
 	<fstream>
@@ -1069,16 +1069,16 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1461860027 source:c:\users\henriquejonas\desktop\tp1\main.cpp
+1461860459 source:c:\users\henriquejonas\desktop\tp1\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"game.h"
 	"resource_manager.h"
 
-1461849696 source:c:\users\henriquejonas\desktop\tp1\resource_manager.cpp
+1461862180 source:c:\users\henriquejonas\desktop\tp1\resource_manager.cpp
 	"resource_manager.h"
 
-1461853686 source:c:\users\henriquejonas\desktop\tp1\shader.cpp
+1461862116 source:c:\users\henriquejonas\desktop\tp1\shader.cpp
 	"shader.h"
 
 1461860043 source:c:\users\henriquejonas\desktop\tp1\sprite_renderer.cpp
