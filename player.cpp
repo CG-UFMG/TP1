@@ -8,11 +8,15 @@ Player::Player(GLuint screenWidth, GLuint screenHeight) : sWidth(screenWidth), s
     this->lifes = MAX_LIFES;
 }
 
-void Player::move(GLfloat delta, double xpos, double ypos) {
+GLfloat Player::move(GLfloat delta, double xpos, double ypos) {
     GLfloat velocity = velFactor * xpos * delta;
 
     if (velocity < 0 && this->paddle->position.x >= 0 || velocity > 0 && this->paddle->position.x <= this->sWidth - this->paddle->sizeOf.x)
         this->paddle->position.x += velocity;
+    else
+        velocity = 0;
+
+    return velocity;
 }
 
 void Player::draw(SpriteRenderer &renderer) {

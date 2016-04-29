@@ -6,13 +6,15 @@
 #include "breakout_level.h"
 #include "player.h"
 #include "text_renderer.h"
+#include "ball.h"
 
 #include <GLFW/glfw3.h>
 #include <vector>
-#include <string>
 #include <sstream>
 
 using namespace std;
+
+const glm::vec2 INITIAL_BALL_VELOCITY(100.0f, -350.0f);
 
 enum GameState {
     GAME_ACTIVE,
@@ -25,8 +27,10 @@ class Game {
     public:
         GLuint width, height;
         GLboolean playerEnabled;
+        GLboolean keys[1024];
         GameState state;
         Player player;
+        Ball ball;
 
         vector<BreakoutLevel> levels;
         GLuint currentLevel;
@@ -40,6 +44,7 @@ class Game {
         void init();
         void movePlayer(GLfloat delta, double xpos, double ypos);
         void update(GLfloat delta);
+        void processInput(GLfloat delta);
         void render();
         void pauseOrContinue();
         void reset();

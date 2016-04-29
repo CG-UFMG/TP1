@@ -66,6 +66,7 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
         glfwGetCursorPos(window, &xpos, &ypos);
 
+        game.processInput(delta);
         game.movePlayer(delta, xpos, ypos);
         game.update(delta);
 
@@ -88,6 +89,12 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
         glfwSetWindowShouldClose(window, GL_TRUE);
     else if (key == GLFW_KEY_R && action == GLFW_PRESS)
         game.reset();
+    else if (key >= 0 && key < 1024) {
+        if (action == GLFW_PRESS)
+            game.keys[key] = GL_TRUE;
+        else if (action == GLFW_RELEASE)
+            game.keys[key] = GL_FALSE;
+    }
 }
 
 void mouseCallback(GLFWwindow* window, int button, int action, int mods) {

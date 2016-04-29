@@ -21,15 +21,14 @@ class Player {
         GLuint points;
         GLuint lifes;
 
+        RenderObject *paddle;
+
         Player() { }
         Player(GLuint screenWidth, GLuint screenHeight);
 
-        void move(GLfloat dt, double xpos, double ypos);
+        GLfloat move(GLfloat dt, double xpos, double ypos);
         void draw(SpriteRenderer &renderer);
         void reset();
-
-    private:
-        RenderObject *paddle;
 
 };
 

@@ -556,18 +556,18 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1461944984 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1461948841 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1461947237 c:\users\henriquejonas\desktop\tp1\game.h
+1461948598 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
 	"player.h"
 	"text_renderer.h"
+	"ball.h"
 	<GLFW/glfw3.h>
 	<vector>
-	<string>
 	<sstream>
 
 1461817179 c:\users\henriquejonas\desktop\tp1\resource_manager.h
@@ -1073,7 +1073,7 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1461869626 source:c:\users\henriquejonas\desktop\tp1\main.cpp
+1461948639 source:c:\users\henriquejonas\desktop\tp1\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"game.h"
@@ -1113,7 +1113,7 @@
 	"sprite_renderer.h"
 	"resource_manager.h"
 
-1461870769 c:\users\henriquejonas\desktop\tp1\player.h
+1461948815 c:\users\henriquejonas\desktop\tp1\player.h
 	<glm.hpp>
 	"render_object.h"
 	"sprite_renderer.h"
@@ -1138,4 +1138,13 @@
 	<freetype/config/ftheader.h>
 
 1461871550 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\freetype\config\ftheader.h
+
+1461948364 source:c:\users\henriquejonas\desktop\tp1\ball.cpp
+	"ball.h"
+
+1461948351 c:\users\henriquejonas\desktop\tp1\ball.h
+	<glm.hpp>
+	"texture.h"
+	"render_object.h"
+	"sprite_renderer.h"
 
