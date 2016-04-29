@@ -63,9 +63,8 @@ void Game::movePlayer(GLfloat delta, double xpos, double ypos) {
 }
 
 void Game::update(GLfloat delta) {
-    if (this->state == GAME_ACTIVE) {
+    if (this->state == GAME_ACTIVE)
         this->ball.move(delta, this->width);
-    }
 }
 
 void Game::processInput(GLfloat delta) {

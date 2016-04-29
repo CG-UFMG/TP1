@@ -17,6 +17,7 @@
 					<Add directory="lib/soil/src" />
 					<Add directory="lib/glew-1.13.0/include" />
 					<Add directory="lib/glm" />
+					<Add directory="lib/freetype/include" />
 				</Compiler>
 				<Linker>
 					<Add library="glew32s" />
@@ -24,9 +25,11 @@
 					<Add library="gdi32" />
 					<Add library="SOIL" />
 					<Add library="opengl32" />
+					<Add library="freetype6" />
 					<Add directory="lib/glfw-3.1.2.bin.WIN32/lib-mingw" />
 					<Add directory="lib/soil/lib" />
 					<Add directory="lib/glew-1.13.0/lib/Release/Win32" />
+					<Add directory="lib/freetype/bin" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -46,15 +49,25 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ball.cpp" />
+		<Unit filename="ball.h" />
+		<Unit filename="breakout_level.cpp" />
+		<Unit filename="breakout_level.h" />
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="player.cpp" />
+		<Unit filename="player.h" />
+		<Unit filename="render_object.cpp" />
+		<Unit filename="render_object.h" />
 		<Unit filename="resource_manager.cpp" />
 		<Unit filename="resource_manager.h" />
 		<Unit filename="shader.cpp" />
 		<Unit filename="shader.h" />
 		<Unit filename="sprite_renderer.cpp" />
 		<Unit filename="sprite_renderer.h" />
+		<Unit filename="text_renderer.cpp" />
+		<Unit filename="text_renderer.h" />
 		<Unit filename="texture.cpp" />
 		<Unit filename="texture.h" />
 		<Extensions>
