@@ -9,6 +9,8 @@
 
 #include <GLFW/glfw3.h>
 #include <vector>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -41,6 +43,8 @@ class Game {
         void render();
         void pauseOrContinue();
         void reset();
+    private:
+        void printPlayerStatus();
 };
 
 #endif

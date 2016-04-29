@@ -27,7 +27,7 @@ void Game::init() {
 
     // Set render-specific controls
     renderer = new SpriteRenderer(ResourceManager::getShader("sprite"));
-    textRenderer = new TextRenderer(ResourceManager::getShader("text"), "fonts/arial.ttf");
+    textRenderer = new TextRenderer(ResourceManager::getShader("text"), "fonts/Arcade.ttf");
 
     // Load levels
     BreakoutLevel basic;
@@ -72,8 +72,10 @@ void Game::render() {
     }
 
     renderer->drawSprite(ResourceManager::getTexture("background"), glm::vec2(0, 0), glm::vec2(this->width, this->height), 0.0f);
+
     this->levels[this->currentLevel].drawLevel(*renderer);
     this->player.draw(*renderer);
+    this->printPlayerStatus();
 }
 
 void Game::pauseOrContinue() {
@@ -86,4 +88,14 @@ void Game::pauseOrContinue() {
 void Game::reset() {
     this->currentLevel = 0;
     this->player.reset();
+}
+
+void Game::printPlayerStatus() {
+    ostringstream lifes, points;
+
+    lifes << "Vidas: " << this->player.lifes;
+    points << "Pontos: " << this->player.points;
+
+    textRenderer->drawText(lifes.str(), 25.0f, 25.0f, 0.5f, glm::vec3(1.0f));
+    textRenderer->drawText(points.str(), 25.0f, 50.0f, 0.5f, glm::vec3(1.0f));
 }

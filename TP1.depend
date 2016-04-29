@@ -556,10 +556,10 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1461872754 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1461944984 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1461872165 c:\users\henriquejonas\desktop\tp1\game.h
+1461947237 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
@@ -567,6 +567,8 @@
 	"text_renderer.h"
 	<GLFW/glfw3.h>
 	<vector>
+	<string>
+	<sstream>
 
 1461817179 c:\users\henriquejonas\desktop\tp1\resource_manager.h
 	<map>
@@ -1120,7 +1122,7 @@
 1461870719 source:c:\users\henriquejonas\desktop\tp1\player.cpp
 	"player.h"
 
-1461872742 c:\users\henriquejonas\desktop\tp1\text_renderer.h
+1461946319 c:\users\henriquejonas\desktop\tp1\text_renderer.h
 	<string>
 	<map>
 	<glm.hpp>
@@ -1129,7 +1131,7 @@
 	<ft2build.h>
 	"shader.h"
 
-1461872876 source:c:\users\henriquejonas\desktop\tp1\text_renderer.cpp
+1461946420 source:c:\users\henriquejonas\desktop\tp1\text_renderer.cpp
 	"text_renderer.h"
 
 1461871549 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\ft2build.h

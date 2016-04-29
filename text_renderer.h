@@ -29,7 +29,7 @@ class TextRenderer {
         void drawText(string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
     private:
         Shader shader;
-        GLuint quadVAO;
+        GLuint quadVAO, quadVBO;
 
         void initRenderData(const GLchar *fontPath);
 };
