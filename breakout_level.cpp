@@ -99,3 +99,8 @@ void BreakoutLevel::init(vector<vector<GLuint> > tileData, GLuint levelWidth, GL
         }
     }
 }
+
+void BreakoutLevel::reset() {
+    for(vector<RenderObject>::iterator it = this->blocks.begin(); it != this->blocks.end(); ++it)
+        it->destroyed = GL_FALSE;
+}

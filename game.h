@@ -45,9 +45,13 @@ class Game {
         void movePlayer(GLfloat delta, double xpos, double ypos);
         void update(GLfloat delta);
         void processInput(GLfloat delta);
+        void processCollisions();
         void render();
         void pauseOrContinue();
         void reset();
+
+        GLboolean checkCollision(Ball ball, RenderObject *object);
+
     private:
         void printPlayerStatus();
 };

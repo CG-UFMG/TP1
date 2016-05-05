@@ -20,6 +20,7 @@ void Game::init() {
     ResourceManager::getShader("text").use().setMatrix4("projection", textProjection);
 
     // Load textures
+    ResourceManager::loadTexture("textures/paddle.png", GL_FALSE, "paddle");
     ResourceManager::loadTexture("textures/background.jpg", GL_FALSE, "background");
     ResourceManager::loadTexture("textures/ball.png", GL_TRUE, "ball");
     ResourceManager::loadTexture("textures/block.png", GL_FALSE, "block");
@@ -63,14 +64,38 @@ void Game::movePlayer(GLfloat delta, double xpos, double ypos) {
 }
 
 void Game::update(GLfloat delta) {
-    if (this->state == GAME_ACTIVE)
+    if (this->state == GAME_ACTIVE) {
         this->ball.move(delta, this->width);
+        this->processCollisions();
+    }
 }
 
 void Game::processInput(GLfloat delta) {
     if (this->state == GAME_ACTIVE)
         if (this->keys[GLFW_KEY_SPACE])
             this->ball.isStuck = false;
+}
+
+GLboolean Game::checkCollision(Ball ball, RenderObject *object) {
+    glm::vec2 center(ball.position + ball.radius);
+    glm::vec2 aabb_half_extents(object->sizeOf.x / 2, object->sizeOf.y / 2);
+    glm::vec2 aabb_center(object->position.x + aabb_half_extents.x, object->position.y + aabb_half_extents.y);
+    glm::vec2 difference = center - aabb_center;
+    glm::vec2 clamped = glm::clamp(difference, -aabb_half_extents, aabb_half_extents);
+    glm::vec2 closest = aabb_center + clamped;
+
+    difference = closest - center;
+
+    return glm::length(difference) < ball.radius;
+}
+
+void Game::processCollisions() {
+    BreakoutLevel *lvl = &this->levels[this->currentLevel];
+
+    for(vector<RenderObject>::iterator it = lvl->blocks.begin(); it != lvl->blocks.end(); ++it)
+        if (!it->destroyed)
+            if (checkCollision(this->ball, &*it) && !it->isSolid)
+                it->destroyed = GL_TRUE;
 }
 
 void Game::render() {
@@ -102,6 +127,7 @@ void Game::pauseOrContinue() {
 
 void Game::reset() {
     this->currentLevel = 0;
+    this->levels[this->currentLevel].reset();
     this->player.reset();
     this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
 }
