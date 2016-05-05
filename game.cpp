@@ -66,7 +66,17 @@ void Game::movePlayer(GLfloat delta, double xpos, double ypos) {
 void Game::update(GLfloat delta) {
     if (this->state == GAME_ACTIVE) {
         this->ball.move(delta, this->width);
-        this->processCollisions();
+        this->checkBlocksCollision();
+        this->checkPlayerCollision();
+
+        if (this->ball.position.y >= this->height) {
+            this->player.lifes--;
+            this->player.paddle->position = this->player.initialPos;
+            this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
+
+            if (this->player.lifes == 0)
+                this->reset();
+        }
     }
 }
 
@@ -76,26 +86,51 @@ void Game::processInput(GLfloat delta) {
             this->ball.isStuck = false;
 }
 
-GLboolean Game::checkCollision(Ball ball, RenderObject *object) {
-    glm::vec2 center(ball.position + ball.radius);
-    glm::vec2 aabb_half_extents(object->sizeOf.x / 2, object->sizeOf.y / 2);
-    glm::vec2 aabb_center(object->position.x + aabb_half_extents.x, object->position.y + aabb_half_extents.y);
-    glm::vec2 difference = center - aabb_center;
-    glm::vec2 clamped = glm::clamp(difference, -aabb_half_extents, aabb_half_extents);
-    glm::vec2 closest = aabb_center + clamped;
-
-    difference = closest - center;
-
-    return glm::length(difference) < ball.radius;
-}
-
-void Game::processCollisions() {
+void Game::checkBlocksCollision() {
     BreakoutLevel *lvl = &this->levels[this->currentLevel];
 
     for(vector<RenderObject>::iterator it = lvl->blocks.begin(); it != lvl->blocks.end(); ++it)
-        if (!it->destroyed)
-            if (checkCollision(this->ball, &*it) && !it->isSolid)
-                it->destroyed = GL_TRUE;
+        if (!it->destroyed) {
+            CollisionData collData = checkCollision(this->ball, &*it);
+
+            if (collData.isCollision) {
+
+                if (!it->isSolid) {
+                    it->destroyed = GL_TRUE;
+                    this->player.points++;
+                }
+
+                Direction direction = collData.direction;
+                glm::vec2 difference = collData.difference;
+
+                if (direction == LEFT || direction == RIGHT) {
+                    GLfloat penetration = this->ball.radius - abs(difference.x);
+                    this->ball.velocity.x = this->ball.velocity.x;
+                    this->ball.position.x += (direction == LEFT ? penetration : -penetration);
+                } else {
+                    GLfloat penetration = this->ball.radius - abs(difference.y);
+                    this->ball.velocity.y = -this->ball.velocity.y;
+                    this->ball.position.y += (direction == UP ? -penetration : penetration);
+                }
+            }
+        }
+}
+
+void Game::checkPlayerCollision() {
+    CollisionData data = checkCollision(this->ball, player.paddle);
+
+    if (!this->ball.isStuck && data.isCollision) {
+        GLfloat centerBoard = this->player.paddle->position.x + this->player.paddle->sizeOf.x / 2;
+        GLfloat distance = (this->ball.position.x + this->ball.radius) - centerBoard;
+        GLfloat percentage = distance / (this->player.paddle->sizeOf.x / 2);
+        GLfloat strength = 2.0f;
+
+        glm::vec2 oldVelocity = this->ball.velocity;
+
+        this->ball.velocity.x = INITIAL_BALL_VELOCITY.x * percentage * strength;
+        this->ball.velocity.y = -this->ball.velocity.y;
+        this->ball.velocity = glm::normalize(this->ball.velocity) * glm::length(oldVelocity);
+    }
 }
 
 void Game::render() {
@@ -140,4 +175,29 @@ void Game::printPlayerStatus() {
 
     textRenderer->drawText(lifes.str(), 25.0f, 25.0f, 0.5f, glm::vec3(1.0f));
     textRenderer->drawText(points.str(), 25.0f, 50.0f, 0.5f, glm::vec3(1.0f));
+}
+
+CollisionData Game::checkCollision(Ball ball, RenderObject *object) {
+    CollisionData data;
+
+    glm::vec2 center(ball.position + ball.radius);
+    glm::vec2 aabb_half_extents(object->sizeOf.x / 2, object->sizeOf.y / 2);
+    glm::vec2 aabb_center(object->position.x + aabb_half_extents.x, object->position.y + aabb_half_extents.y);
+    glm::vec2 difference = center - aabb_center;
+    glm::vec2 clamped = glm::clamp(difference, -aabb_half_extents, aabb_half_extents);
+    glm::vec2 closest = aabb_center + clamped;
+
+    difference = closest - center;
+
+    if (glm::length(difference) <= ball.radius) {
+        data.difference = difference;
+        data.direction = calculateDirection(difference);
+        data.isCollision = GL_TRUE;
+    } else {
+        data.difference = glm::vec2(0, 0);
+        data.direction = UP;
+        data.isCollision = GL_FALSE;
+    }
+
+    return data;
 }

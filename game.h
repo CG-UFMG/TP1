@@ -7,6 +7,7 @@
 #include "player.h"
 #include "text_renderer.h"
 #include "ball.h"
+#include "vector_direction.hpp"
 
 #include <GLFW/glfw3.h>
 #include <vector>
@@ -14,13 +15,19 @@
 
 using namespace std;
 
-const glm::vec2 INITIAL_BALL_VELOCITY(100.0f, -350.0f);
+const glm::vec2 INITIAL_BALL_VELOCITY(50.0f, -220.0f);
 
 enum GameState {
     GAME_ACTIVE,
     GAME_PAUSE,
     GAME_MENU,
     GAME_WIN
+};
+
+struct CollisionData {
+    GLboolean isCollision;
+    Direction direction;
+    glm::vec2 difference;
 };
 
 class Game {
@@ -45,14 +52,16 @@ class Game {
         void movePlayer(GLfloat delta, double xpos, double ypos);
         void update(GLfloat delta);
         void processInput(GLfloat delta);
-        void processCollisions();
+        void checkBlocksCollision();
+        void checkPlayerCollision();
         void render();
         void pauseOrContinue();
         void reset();
 
-        GLboolean checkCollision(Ball ball, RenderObject *object);
 
     private:
+        CollisionData checkCollision(Ball ball, RenderObject *object);
+
         void printPlayerStatus();
 };
 

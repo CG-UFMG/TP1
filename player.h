@@ -9,7 +9,7 @@
 
 const glm::vec2 PLAYER_SIZE(100, 20);
 const GLuint MAX_LIFES = 3;
-const GLfloat PLAYER_VELOCITY = 3000.0f;
+const GLfloat PLAYER_VELOCITY = 2500.0f;
 
 class Player {
 

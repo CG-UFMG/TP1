@@ -556,16 +556,17 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1462477795 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1462481696 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1462477620 c:\users\henriquejonas\desktop\tp1\game.h
+1462481903 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
 	"player.h"
 	"text_renderer.h"
 	"ball.h"
+	"vector_direction.hpp"
 	<GLFW/glfw3.h>
 	<vector>
 	<sstream>
@@ -1113,7 +1114,7 @@
 	"sprite_renderer.h"
 	"resource_manager.h"
 
-1462476198 c:\users\henriquejonas\desktop\tp1\player.h
+1462481757 c:\users\henriquejonas\desktop\tp1\player.h
 	<glm.hpp>
 	"render_object.h"
 	"sprite_renderer.h"
@@ -1147,4 +1148,10 @@
 	"texture.h"
 	"render_object.h"
 	"sprite_renderer.h"
+
+1462478963 c:\users\henriquejonas\desktop\tp1\vector_direction.h
+	<glm.hpp>
+
+1462479776 c:\users\henriquejonas\desktop\tp1\vector_direction.hpp
+	<glm.hpp>
 
