@@ -130,6 +130,7 @@ void Game::checkPlayerCollision() {
         this->ball.velocity.x = INITIAL_BALL_VELOCITY.x * percentage * strength;
         this->ball.velocity.y = -this->ball.velocity.y;
         this->ball.velocity = glm::normalize(this->ball.velocity) * glm::length(oldVelocity);
+        this->ball.velocity.y = -1 * abs(this->ball.velocity.y);
     }
 }
 
