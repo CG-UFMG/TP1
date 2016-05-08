@@ -1,13 +1,16 @@
 #include "game.h"
 
 Game::Game(GLuint width, GLuint height) : width(width), height(height), state(GAME_START), playerEnabled(GL_TRUE) {
-
+    this->soundEngine = irrklang::createIrrKlangDevice();
 }
 
 Game::~Game() {
 }
 
 void Game::init() {
+    // Load Sounds
+    this->soundEngine->play2D("audio/background.mp3", GL_TRUE);
+
     // Load shaders
     ResourceManager::loadShader("shaders/sprite.vs", "shaders/sprite.frag", NULL, "sprite");
     ResourceManager::loadShader("shaders/text.vs", "shaders/text.frag", NULL, "text");
@@ -32,7 +35,10 @@ void Game::init() {
 
     // Load levels
     BreakoutLevel basic;
-    basic.loadLevel("levels/basic.blv", this->width, this->height * 0.5);
+    basic.loadLevel("levels/4.blv", this->width, this->height * 0.5);
+    basic.loadLevel("levels/3.blv", this->width, this->height * 0.5);
+    basic.loadLevel("levels/2.blv", this->width, this->height * 0.5);
+    basic.loadLevel("levels/1.blv", this->width, this->height * 0.55);
 
     // Load player
     player = Player(this->width, this->height);
@@ -74,7 +80,7 @@ void Game::update(GLfloat delta) {
             this->player.lifes--;
             this->player.paddle->position = this->player.initialPos;
             this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
-            this->state = GAME_PLAYER_DEAD;
+            this->soundEngine->play2D("audio/dead.wav");
 
             if (this->player.lifes == 0)
                 this->reset();
@@ -104,7 +110,10 @@ void Game::checkBlocksCollision() {
 
                 if (!it->isSolid) {
                     it->destroyed = GL_TRUE;
+                    this->soundEngine->play2D("audio/non-solid.wav");
                     this->player.points++;
+                } else {
+                    this->soundEngine->play2D("audio/solid.wav");
                 }
 
                 Direction direction = collData.direction;
@@ -138,13 +147,17 @@ void Game::checkPlayerCollision() {
         this->ball.velocity.y = -this->ball.velocity.y;
         this->ball.velocity = glm::normalize(this->ball.velocity) * glm::length(oldVelocity);
         this->ball.velocity.y = -1 * abs(this->ball.velocity.y);
+
+        this->soundEngine->play2D("audio/paddle.wav");
     }
 }
 
 void Game::render() {
     renderer->drawSprite(ResourceManager::getTexture("background"), glm::vec2(0, 0), glm::vec2(this->width, this->height), 0.0f);
 
-    this->levels[this->currentLevel].drawLevel(*renderer);
+    if (this->state != GAME_WIN)
+        this->levels[this->currentLevel].drawLevel(*renderer);
+
     this->player.draw(*renderer);
     this->ball.draw(*renderer);
 
@@ -192,6 +205,7 @@ void Game::nextLevel() {
         this->player.reset();
         this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
         this->state = GAME_NEXT_LEVEL;
+        this->soundEngine->play2D("audio/win.wav");
     }
 }
 

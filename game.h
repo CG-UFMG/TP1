@@ -10,6 +10,7 @@
 #include "vector_direction.hpp"
 
 #include <GLFW/glfw3.h>
+#include <irrKlang.h>
 #include <vector>
 #include <sstream>
 
@@ -40,6 +41,7 @@ class Game {
         GameState state;
         Player player;
         Ball ball;
+        irrklang::ISoundEngine *soundEngine;
 
         vector<BreakoutLevel> levels;
         GLuint currentLevel;

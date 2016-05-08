@@ -556,10 +556,10 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1462726780 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1462736340 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1462727382 c:\users\henriquejonas\desktop\tp1\game.h
+1462732453 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
@@ -568,6 +568,7 @@
 	"ball.h"
 	"vector_direction.hpp"
 	<GLFW/glfw3.h>
+	<irrKlang.h>
 	<vector>
 	<sstream>
 
@@ -1074,7 +1075,7 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1462726369 source:c:\users\henriquejonas\desktop\tp1\main.cpp
+1462728197 source:c:\users\henriquejonas\desktop\tp1\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"game.h"
@@ -1101,7 +1102,7 @@
 	"texture.h"
 	"sprite_renderer.h"
 
-1462727795 source:c:\users\henriquejonas\desktop\tp1\breakout_level.cpp
+1462730386 source:c:\users\henriquejonas\desktop\tp1\breakout_level.cpp
 	"breakout_level.h"
 	<fstream>
 	<sstream>
@@ -1154,4 +1155,322 @@
 
 1462724500 c:\users\henriquejonas\desktop\tp1\vector_direction.hpp
 	<glm.hpp>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/FileInputStream.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/MemoryInputStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\config.hpp
+	"TargetConditionals.h"
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\clock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\export.hpp
+	<SFML/Config.hpp>
+
+1462731519 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\time.hpp
+	<SFML/System/Export.hpp>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\err.hpp
+	<SFML/System/Export.hpp>
+	<ostream>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\fileinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdio>
+	<string>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\noncopyable.hpp
+	<SFML/System/Export.hpp>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\lock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\memoryinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Export.hpp>
+	<cstdlib>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\mutex.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\sleep.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\string.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Utf.hpp>
+	<locale>
+	<string>
+	<SFML/System/String.inl>
+
+1462731519 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
+
+1462731519 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\utf.inl
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\string.inl
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\thread.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\thread.inl
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\threadlocal.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+
+1462731518 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
+
+1462731519 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\threadlocalptr.inl
+
+1462731519 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1462731519 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\vector2.inl
+
+1462731519 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1462731519 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\system\vector3.inl
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\inputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\alresource.hpp
+	<SFML/Audio/Export.hpp>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\outputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundfilefactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundfilefactory.inl
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundfilereader.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1462731517 c:\users\henriquejonas\desktop\tp1\lib\sfml\include\sfml\audio\soundfilewriter.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1462732212 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\irrklang.h
+	"ik_irrKlangTypes.h"
+	"ik_vec3d.h"
+	"ik_IRefCounted.h"
+	"ik_IVirtualRefCounted.h"
+	"ik_ESoundOutputDrivers.h"
+	"ik_ESoundEngineOptions.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+	"ik_ISoundEngine.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_IAudioStream.h"
+	"ik_IAudioStreamLoader.h"
+	"ik_ISoundEffectControl.h"
+	"ik_ISoundStopEventReceiver.h"
+	"ik_IFileFactory.h"
+	"ik_IFileReader.h"
+	"ik_ISoundDeviceList.h"
+	"ik_IAudioRecorder.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_irrklangtypes.h
+	<wchar.h>
+
+1462732212 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_vec3d.h
+	<math.h>
+	"ik_irrKlangTypes.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_irefcounted.h
+	"ik_irrKlangTypes.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_ivirtualrefcounted.h
+	"ik_irrKlangTypes.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_esoundoutputdrivers.h
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_esoundengineoptions.h
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_estreammodes.h
+
+1462732212 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_saudiostreamformat.h
+	"ik_IRefCounted.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_isoundengine.h
+	"ik_IRefCounted.h"
+	"ik_vec3d.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_EStreamModes.h"
+	"ik_IFileFactory.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_isoundsource.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_isound.h
+	"ik_IVirtualRefCounted.h"
+	"ik_ISoundEffectControl.h"
+	"ik_vec3d.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_isoundeffectcontrol.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_ifilefactory.h
+	"ik_IRefCounted.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_isoundmixedoutputreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_iaudiostream.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_iaudiostreamloader.h
+	"ik_IRefCounted.h"
+	"ik_IFileReader.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_ifilereader.h
+	"ik_IRefCounted.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_isoundstopeventreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_isounddevicelist.h
+	"ik_IRefCounted.h"
+
+1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_iaudiorecorder.h
+	"ik_IRefCounted.h"
+	"ik_ISoundSource.h"
 
