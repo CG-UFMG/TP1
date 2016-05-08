@@ -28,6 +28,10 @@ void Game::init() {
     ResourceManager::loadTexture("textures/ball.png", GL_TRUE, "ball");
     ResourceManager::loadTexture("textures/block.png", GL_FALSE, "block");
     ResourceManager::loadTexture("textures/block_solid.png", GL_FALSE, "block_solid");
+    ResourceManager::loadTexture("textures/speedup.png", GL_TRUE, "speed");
+    ResourceManager::loadTexture("textures/stickpaddle.png", GL_TRUE, "stick");
+    ResourceManager::loadTexture("textures/increasepaddle.png", GL_TRUE, "increase");
+    ResourceManager::loadTexture("textures/passball.png", GL_TRUE, "pass");
 
     // Set render-specific controls
     renderer = new SpriteRenderer(ResourceManager::getShader("sprite"));
@@ -72,23 +76,12 @@ void Game::movePlayer(GLfloat delta, double xpos, double ypos) {
 void Game::update(GLfloat delta) {
     if (this->state == GAME_ACTIVE || this->state == GAME_PLAYER_DEAD) {
         this->ball.move(delta, this->width);
+        this->updatePowerUps(delta);
         this->checkBlocksCollision();
         this->checkPlayerCollision();
-
-        // If player is dead???
-        if (this->ball.position.y >= this->height) {
-            this->player.lifes--;
-            this->player.paddle->position = this->player.initialPos;
-            this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
-            this->soundEngine->play2D("audio/dead.wav");
-
-            if (this->player.lifes == 0)
-                this->reset();
-        }
-    }
-
-    if (this->levels[this->currentLevel].isCompleted()) {
-        this->nextLevel();
+        this->checkPowerUpsCollision();
+        this->checkPlayerDeath();
+        this->checkNextLevel();
     }
 }
 
@@ -104,7 +97,7 @@ void Game::checkBlocksCollision() {
 
     for(vector<RenderObject>::iterator it = lvl->blocks.begin(); it != lvl->blocks.end(); ++it)
         if (!it->destroyed) {
-            CollisionData collData = checkCollision(this->ball, &*it);
+            CollisionData collData = this->ball.checkCollision(&*it);
 
             if (collData.isCollision) {
 
@@ -112,6 +105,7 @@ void Game::checkBlocksCollision() {
                     it->destroyed = GL_TRUE;
                     this->soundEngine->play2D("audio/non-solid.wav");
                     this->player.points++;
+                    this->spawnPowerUps(&*it);
                 } else {
                     this->soundEngine->play2D("audio/solid.wav");
                 }
@@ -119,21 +113,23 @@ void Game::checkBlocksCollision() {
                 Direction direction = collData.direction;
                 glm::vec2 difference = collData.difference;
 
-                if (direction == LEFT || direction == RIGHT) {
-                    GLfloat penetration = this->ball.radius - abs(difference.x);
-                    this->ball.velocity.x = this->ball.velocity.x;
-                    this->ball.position.x += (direction == LEFT ? penetration : -penetration);
-                } else {
-                    GLfloat penetration = this->ball.radius - abs(difference.y);
-                    this->ball.velocity.y = -this->ball.velocity.y;
-                    this->ball.position.y += (direction == UP ? -penetration : penetration);
+                if (!this->ball.isPassable || it->isSolid) {
+                    if (direction == LEFT || direction == RIGHT) {
+                        GLfloat penetration = this->ball.radius - abs(difference.x);
+                        this->ball.velocity.x = this->ball.velocity.x;
+                        this->ball.position.x += (direction == LEFT ? penetration : -penetration);
+                    } else {
+                        GLfloat penetration = this->ball.radius - abs(difference.y);
+                        this->ball.velocity.y = -this->ball.velocity.y;
+                        this->ball.position.y += (direction == UP ? -penetration : penetration);
+                    }
                 }
             }
         }
 }
 
 void Game::checkPlayerCollision() {
-    CollisionData data = checkCollision(this->ball, player.paddle);
+    CollisionData data = this->ball.checkCollision(player.paddle);
 
     if (!this->ball.isStuck && data.isCollision) {
         GLfloat centerBoard = this->player.paddle->position.x + this->player.paddle->sizeOf.x / 2;
@@ -147,8 +143,35 @@ void Game::checkPlayerCollision() {
         this->ball.velocity.y = -this->ball.velocity.y;
         this->ball.velocity = glm::normalize(this->ball.velocity) * glm::length(oldVelocity);
         this->ball.velocity.y = -1 * abs(this->ball.velocity.y);
+        this->ball.isStuck = this->ball.isStick;
 
         this->soundEngine->play2D("audio/paddle.wav");
+    }
+}
+
+void Game::checkPowerUpsCollision() {
+    for(vector<PowerUp>::iterator it = this->powerUps.begin(); it != this->powerUps.end(); ++it) {
+        if (!it->destroyed) {
+            if (it->position.y >= this->height)
+                it->destroyed = GL_TRUE;
+            else if (it->checkCollision(this->player.paddle).isCollision) {
+                this->activePowerUp(&*it);
+                it->destroyed = GL_TRUE;
+                it->active = GL_TRUE;
+            }
+        }
+    }
+}
+
+void Game::checkPlayerDeath() {
+    if (this->ball.position.y >= this->height) {
+        this->player.lifes--;
+        this->player.paddle->position = this->player.initialPos;
+        this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
+        this->soundEngine->play2D("audio/dead.wav");
+
+        if (this->player.lifes == 0)
+            this->reset();
     }
 }
 
@@ -165,6 +188,7 @@ void Game::render() {
         case GAME_PLAYER_DEAD:
         case GAME_ACTIVE:
             this->printPlayerStatus();
+            this->renderPowerUps();
             break;
         case GAME_WIN:
             textRenderer->drawText("VOCE GANHOU!!!", 270.0f, 350.0f, 0.7f, glm::vec3(0.81f, 0.71f, 0.23f));
@@ -197,15 +221,17 @@ void Game::reset() {
     this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
 }
 
-void Game::nextLevel() {
-    if (this->currentLevel == this->levels.size() - 1)
-        this->state = GAME_WIN;
-    else {
-        this->currentLevel++;
-        this->player.reset();
-        this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
-        this->state = GAME_NEXT_LEVEL;
-        this->soundEngine->play2D("audio/win.wav");
+void Game::checkNextLevel() {
+    if (this->levels[this->currentLevel].isCompleted()) {
+        if (this->currentLevel == this->levels.size() - 1)
+            this->state = GAME_WIN;
+        else {
+            this->currentLevel++;
+            this->player.reset();
+            this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
+            this->state = GAME_NEXT_LEVEL;
+            this->soundEngine->play2D("audio/win.wav");
+        }
     }
 }
 
@@ -228,27 +254,64 @@ void Game::printGameStatus() {
     this->state = GAME_PAUSE;
 }
 
-CollisionData Game::checkCollision(Ball ball, RenderObject *object) {
-    CollisionData data;
+void Game::spawnPowerUps(RenderObject *object) {
+    if (PowerUp::spawnChance(60))
+        this->powerUps.push_back(PowerUp("speed", glm::vec3(0.5f, 0.5f, 1.0f), 0.0f, object->position, ResourceManager::getTexture("speed")));
+    if (PowerUp::spawnChance(60))
+        this->powerUps.push_back(PowerUp("sticky", glm::vec3(1.0f, 0.5f, 1.0f), 20.0f, object->position, ResourceManager::getTexture("stick")));
+    if (PowerUp::spawnChance(60))
+        this->powerUps.push_back(PowerUp("pass", glm::vec3(0.5f, 1.0f, 0.5f), 10.0f, object->position, ResourceManager::getTexture("pass")));
+    if (PowerUp::spawnChance(60))
+        this->powerUps.push_back(PowerUp("pad-size-increase",glm::vec3(1.0f, 0.6f, 0.4), 10.0f, object->position, ResourceManager::getTexture("increase")));
+}
 
-    glm::vec2 center(ball.position + ball.radius);
-    glm::vec2 aabb_half_extents(object->sizeOf.x / 2, object->sizeOf.y / 2);
-    glm::vec2 aabb_center(object->position.x + aabb_half_extents.x, object->position.y + aabb_half_extents.y);
-    glm::vec2 difference = center - aabb_center;
-    glm::vec2 clamped = glm::clamp(difference, -aabb_half_extents, aabb_half_extents);
-    glm::vec2 closest = aabb_center + clamped;
+void Game::renderPowerUps() {
+    for(vector<PowerUp>::iterator it = this->powerUps.begin(); it != this->powerUps.end(); ++it)
+        if (!it->destroyed)
+            it->draw(*renderer);
+}
 
-    difference = closest - center;
+void Game::updatePowerUps(GLfloat delta) {
+    for(vector<PowerUp>::iterator it = this->powerUps.begin(); it != this->powerUps.end(); ++it) {
+        it->position += it->velocity * delta;
 
-    if (glm::length(difference) <= ball.radius) {
-        data.difference = difference;
-        data.direction = calculateDirection(difference);
-        data.isCollision = GL_TRUE;
-    } else {
-        data.difference = glm::vec2(0, 0);
-        data.direction = UP;
-        data.isCollision = GL_FALSE;
+        if (it->active) {
+            it->duration -= delta;
+            if (it->duration <= 0.0f) {
+                it->active = GL_FALSE;
+                if (!this->hasAnotherPowerUp(it->type)) {
+                    if (it->type == "sticky") {
+                        this->ball.isStick = GL_FALSE;
+                        this->player.paddle->color = glm::vec3(1.0f);
+                    } else if (it->type == "pass") {
+                        this->ball.isPassable = GL_FALSE;
+                        this->ball.color = glm::vec3(1.0f);
+                    } else if (it->type == "pad-size-increase") {
+                        this->player.paddle->sizeOf.x -= 50;
+                    }
+                }
+            }
+        }
     }
+}
 
-    return data;
+void Game::activePowerUp(PowerUp *powerUp) {
+    if (powerUp->type == "speed") {
+        this->ball.velocity *= 1.3;
+    } else if (powerUp->type == "sticky") {
+        this->ball.isStick = GL_TRUE;
+        this->player.paddle->color = glm::vec3(1.0f, 0.5f, 1.0f);
+    } else if (powerUp->type == "pass") {
+        this->ball.isPassable = GL_TRUE;
+        this->ball.color = glm::vec3(1.0f, 0.5f, 0.5f);
+    } else if (powerUp->type == "pad-size-increase") {
+        this->player.paddle->sizeOf.x += 50;
+    }
+}
+
+GLboolean Game::hasAnotherPowerUp(string type) {
+    for(vector<PowerUp>::iterator it = this->powerUps.begin(); it != this->powerUps.end(); ++it)
+        if (it->active && it->type == type)
+            return GL_TRUE;
+    return GL_FALSE;
 }

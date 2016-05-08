@@ -556,10 +556,10 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1462736340 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1462749921 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1462732453 c:\users\henriquejonas\desktop\tp1\game.h
+1462749027 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
@@ -567,6 +567,7 @@
 	"text_renderer.h"
 	"ball.h"
 	"vector_direction.hpp"
+	"power_up.h"
 	<GLFW/glfw3.h>
 	<irrKlang.h>
 	<vector>
@@ -1093,14 +1094,15 @@
 1461862273 source:c:\users\henriquejonas\desktop\tp1\texture.cpp
 	"texture.h"
 
-1461850765 source:c:\users\henriquejonas\desktop\tp1\render_object.cpp
+1462748954 source:c:\users\henriquejonas\desktop\tp1\render_object.cpp
 	"render_object.h"
 
-1461850792 c:\users\henriquejonas\desktop\tp1\render_object.h
+1462749171 c:\users\henriquejonas\desktop\tp1\render_object.h
 	<GL/glew.h>
 	<glm.hpp>
 	"texture.h"
 	"sprite_renderer.h"
+	"vector_direction.hpp"
 
 1462730386 source:c:\users\henriquejonas\desktop\tp1\breakout_level.cpp
 	"breakout_level.h"
@@ -1141,10 +1143,10 @@
 
 1461871550 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\freetype\config\ftheader.h
 
-1462727587 source:c:\users\henriquejonas\desktop\tp1\ball.cpp
+1462749158 source:c:\users\henriquejonas\desktop\tp1\ball.cpp
 	"ball.h"
 
-1462726727 c:\users\henriquejonas\desktop\tp1\ball.h
+1462749183 c:\users\henriquejonas\desktop\tp1\ball.h
 	<glm.hpp>
 	"texture.h"
 	"render_object.h"
@@ -1473,4 +1475,12 @@
 1462732211 c:\users\henriquejonas\desktop\tp1\lib\irrklang\include\ik_iaudiorecorder.h
 	"ik_IRefCounted.h"
 	"ik_ISoundSource.h"
+
+1462745869 c:\users\henriquejonas\desktop\tp1\power_up.h
+	"render_object.h"
+	<glm.hpp>
+	<stdlib.h>
+
+1462745809 source:c:\users\henriquejonas\desktop\tp1\power_up.cpp
+	"power_up.h"
 

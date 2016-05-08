@@ -8,6 +8,7 @@
 #include "text_renderer.h"
 #include "ball.h"
 #include "vector_direction.hpp"
+#include "power_up.h"
 
 #include <GLFW/glfw3.h>
 #include <irrKlang.h>
@@ -27,12 +28,6 @@ enum GameState {
     GAME_PLAYER_DEAD
 };
 
-struct CollisionData {
-    GLboolean isCollision;
-    Direction direction;
-    glm::vec2 difference;
-};
-
 class Game {
     public:
         GLuint width, height;
@@ -44,6 +39,7 @@ class Game {
         irrklang::ISoundEngine *soundEngine;
 
         vector<BreakoutLevel> levels;
+        vector<PowerUp> powerUps;
         GLuint currentLevel;
 
         SpriteRenderer *renderer;
@@ -56,18 +52,24 @@ class Game {
         void movePlayer(GLfloat delta, double xpos, double ypos);
         void update(GLfloat delta);
         void processInput(GLfloat delta);
-        void checkBlocksCollision();
-        void checkPlayerCollision();
         void render();
         void pauseOrContinue();
         void reset();
-        void nextLevel();
         void printGameStatus();
 
     private:
-        CollisionData checkCollision(Ball ball, RenderObject *object);
-
         void printPlayerStatus();
+        void checkBlocksCollision();
+        void checkPlayerCollision();
+        void checkPowerUpsCollision();
+        void checkPlayerDeath();
+        void checkNextLevel();
+        void spawnPowerUps(RenderObject *object);
+        void renderPowerUps();
+        void updatePowerUps(GLfloat delta);
+        void activePowerUp(PowerUp *powerUp);
+
+        GLboolean hasAnotherPowerUp(string type);
 };
 
 #endif

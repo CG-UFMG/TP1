@@ -12,7 +12,7 @@ const GLfloat BALL_RADIUS = 13.0f;
 class Ball : public RenderObject {
     public:
         GLfloat radius;
-        GLboolean isStuck;
+        GLboolean isStuck, isStick, isPassable;
         glm::vec2 initialPos;
 
         Ball();
@@ -22,6 +22,8 @@ class Ball : public RenderObject {
 
         void reset(glm::vec2 position, glm::vec2 velocity);
         void printDebugData();
+
+        CollisionData checkCollision(RenderObject *object);
 };
 
 #endif

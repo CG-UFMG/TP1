@@ -9,3 +9,16 @@ RenderObject::RenderObject(glm::vec2 pos, glm::vec2 size, Texture sprite, glm::v
 void RenderObject::draw(SpriteRenderer &renderer) {
     renderer.drawSprite(this->sprite, this->position, this->sizeOf, this->rotation, this->color);
 }
+
+CollisionData RenderObject::checkCollision(RenderObject *object) {
+    CollisionData data;
+
+    bool collisionX = this->position.x + this->sizeOf.x >= object->position.x &&
+        object->position.x + object->sizeOf.x >= this->position.x;
+    bool collisionY = this->position.y + this->sizeOf.y >= object->position.y &&
+        object->position.y + object->sizeOf.y >= this->position.y;
+
+    data.isCollision = collisionX && collisionY;
+
+    return data;
+}
