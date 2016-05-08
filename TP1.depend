@@ -556,10 +556,10 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1462481696 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1462726780 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1462481903 c:\users\henriquejonas\desktop\tp1\game.h
+1462727382 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
@@ -571,17 +571,17 @@
 	<vector>
 	<sstream>
 
-1462476199 c:\users\henriquejonas\desktop\tp1\resource_manager.h
+1461817179 c:\users\henriquejonas\desktop\tp1\resource_manager.h
 	<map>
 	<string>
 	"texture.h"
 	"shader.h"
 
-1462476199 c:\users\henriquejonas\desktop\tp1\texture.h
+1461862206 c:\users\henriquejonas\desktop\tp1\texture.h
 	<GL/glew.h>
 	<SOIL.h>
 
-1462476191 c:\users\henriquejonas\desktop\tp1\lib\glew-1.13.0\include\gl\glew.h
+1461817494 c:\users\henriquejonas\desktop\tp1\lib\glew-1.13.0\include\gl\glew.h
 	<stddef.h>
 	<inttypes.h>
 	<stdint.h>
@@ -590,9 +590,9 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\soil\src\soil.h
+1461817613 c:\users\henriquejonas\desktop\tp1\lib\soil\src\soil.h
 
-1462476199 c:\users\henriquejonas\desktop\tp1\shader.h
+1461862153 c:\users\henriquejonas\desktop\tp1\shader.h
 	<GL/glew.h>
 	<string>
 	<fstream>
@@ -601,7 +601,7 @@
 	<glm.hpp>
 	<gtc/type_ptr.hpp>
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\glm.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\glm.hpp
 	"detail/_fixes.hpp"
 	<cmath>
 	<climits>
@@ -630,21 +630,21 @@
 	"vector_relational.hpp"
 	"integer.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\_fixes.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\_fixes.hpp
 	<cmath>
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\fwd.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\fwd.hpp
 	"detail/type_int.hpp"
 	"detail/type_float.hpp"
 	"detail/type_vec.hpp"
 	"detail/type_mat.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_int.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_int.hpp
 	"setup.hpp"
 	<type_traits>
 	<cstdint>
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\setup.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\setup.hpp
 	<cassert>
 	<cstddef>
 	<cuda.h>
@@ -656,50 +656,50 @@
 	<emmintrin.h>
 	<__config>
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_float.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_float.hpp
 	"setup.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec.hpp
 	"precision.hpp"
 	"type_int.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\precision.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\precision.hpp
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat.hpp
 	"precision.hpp"
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\vec2.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\vec2.hpp
 	"detail/type_vec2.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec2.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec2.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec2.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\_swizzle.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\_swizzle.hpp
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\_swizzle_func.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\_swizzle_func.hpp
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec2.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec2.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\vec3.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\vec3.hpp
 	"detail/type_vec3.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec3.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec3.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec3.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec3.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec3.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\vec4.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\vec4.hpp
 	"detail/type_vec4.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4.hpp
 	"setup.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
@@ -707,21 +707,21 @@
 	<cstddef>
 	"type_vec4.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4.inl
 	"type_vec4_sse2.inl"
 	"type_vec4_avx.inl"
 	"type_vec4_avx2.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4_sse2.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4_sse2.inl
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4_avx.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4_avx.inl
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4_avx2.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec4_avx2.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat2x2.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat2x2.hpp
 	"detail/type_mat2x2.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x2.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_mat.hpp"
@@ -729,12 +729,12 @@
 	<cstddef>
 	"type_mat2x2.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x2.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x2.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat2x3.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat2x3.hpp
 	"detail/type_mat2x3.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x3.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x3.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -743,12 +743,12 @@
 	<cstddef>
 	"type_mat2x3.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x3.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x3.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat2x4.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat2x4.hpp
 	"detail/type_mat2x4.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x4.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x4.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -757,12 +757,12 @@
 	<cstddef>
 	"type_mat2x4.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x4.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat2x4.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat3x2.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat3x2.hpp
 	"detail/type_mat3x2.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x2.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -771,12 +771,12 @@
 	<cstddef>
 	"type_mat3x2.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x2.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x2.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat3x3.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat3x3.hpp
 	"detail/type_mat3x3.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x3.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_mat.hpp"
@@ -784,12 +784,12 @@
 	<cstddef>
 	"type_mat3x3.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x3.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x3.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat3x4.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat3x4.hpp
 	"detail/type_mat3x4.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x4.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x4.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -798,12 +798,12 @@
 	<cstddef>
 	"type_mat3x4.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x4.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat3x4.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat4x2.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat4x2.hpp
 	"detail/type_mat4x2.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x2.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -812,12 +812,12 @@
 	<cstddef>
 	"type_mat4x2.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x2.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x2.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat4x3.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat4x3.hpp
 	"detail/type_mat4x3.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x3.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -826,12 +826,12 @@
 	<cstddef>
 	"type_mat4x3.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x3.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x3.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\mat4x4.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\mat4x4.hpp
 	"detail/type_mat4x4.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x4.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x4.hpp
 	"../fwd.hpp"
 	"type_vec4.hpp"
 	"type_mat.hpp"
@@ -839,28 +839,28 @@
 	<cstddef>
 	"type_mat4x4.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x4.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_mat4x4.inl
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\trigonometric.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\trigonometric.hpp
 	"detail/func_trigonometric.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_trigonometric.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_trigonometric.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_trigonometric.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_trigonometric.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_trigonometric.inl
 	"_vectorize.hpp"
 	<cmath>
 	<limits>
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\_vectorize.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\_vectorize.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec1.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec1.hpp
 	"../fwd.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
@@ -868,12 +868,12 @@
 	<cstddef>
 	"type_vec1.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec1.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_vec1.inl
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\exponential.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\exponential.hpp
 	"detail/func_exponential.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_exponential.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_exponential.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -881,32 +881,32 @@
 	<cmath>
 	"func_exponential.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_exponential.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_exponential.inl
 	"func_vector_relational.hpp"
 	"_vectorize.hpp"
 	<limits>
 	<cmath>
 	<cassert>
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_vector_relational.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_vector_relational.hpp
 	"precision.hpp"
 	"setup.hpp"
 	"func_vector_relational.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_vector_relational.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_vector_relational.inl
 	<limits>
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\common.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\common.hpp
 	"detail/func_common.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_common.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_common.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"type_int.hpp"
 	"_fixes.hpp"
 	"func_common.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_common.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_common.inl
 	"func_vector_relational.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -914,43 +914,43 @@
 	"_vectorize.hpp"
 	<limits>
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\packing.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\packing.hpp
 	"detail/func_packing.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_packing.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_packing.hpp
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"func_packing.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_packing.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_packing.inl
 	"func_common.hpp"
 	"type_half.hpp"
 	"../fwd.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_half.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_half.hpp
 	"setup.hpp"
 	"type_half.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_half.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\type_half.inl
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\geometric.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\geometric.hpp
 	"detail/func_geometric.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_geometric.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_geometric.hpp
 	"type_vec3.hpp"
 	"func_geometric.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_geometric.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_geometric.inl
 	"func_exponential.hpp"
 	"func_common.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"type_float.hpp"
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\matrix.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\matrix.hpp
 	"detail/func_matrix.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_matrix.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_matrix.hpp
 	"../detail/precision.hpp"
 	"../detail/setup.hpp"
 	"../detail/type_mat.hpp"
@@ -968,24 +968,24 @@
 	"../mat4x4.hpp"
 	"func_matrix.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_matrix.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_matrix.inl
 	"../geometric.hpp"
 	<limits>
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\vector_relational.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\vector_relational.hpp
 	"detail/func_vector_relational.hpp"
 
-1462476198 c:\users\henriquejonas\desktop\tp1\lib\glm\integer.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\integer.hpp
 	"detail/func_integer.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_integer.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_integer.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_common.hpp"
 	"func_vector_relational.hpp"
 	"func_integer.inl"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_integer.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\detail\func_integer.inl
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -994,7 +994,7 @@
 	<intrin.h>
 	<limits>
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\type_ptr.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\type_ptr.hpp
 	"../gtc/quaternion.hpp"
 	"../vec2.hpp"
 	"../vec3.hpp"
@@ -1011,7 +1011,7 @@
 	<cstring>
 	"type_ptr.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\quaternion.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\quaternion.hpp
 	"../mat3x3.hpp"
 	"../mat4x4.hpp"
 	"../vec3.hpp"
@@ -1019,30 +1019,30 @@
 	"../gtc/constants.hpp"
 	"quaternion.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\constants.hpp
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\constants.hpp
 	"../detail/setup.hpp"
 	"constants.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\constants.inl
+1461817178 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\constants.inl
 	<limits>
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\quaternion.inl
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\quaternion.inl
 	"../trigonometric.hpp"
 	"../geometric.hpp"
 	"../exponential.hpp"
 	<limits>
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\type_ptr.inl
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1462476199 c:\users\henriquejonas\desktop\tp1\sprite_renderer.h
+1461851018 c:\users\henriquejonas\desktop\tp1\sprite_renderer.h
 	<GL/glew.h>
 	<glm.hpp>
 	<gtc/matrix_transform.hpp>
 	"texture.h"
 	"shader.h"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\matrix_transform.hpp
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\matrix_transform.hpp
 	"../mat4x4.hpp"
 	"../vec2.hpp"
 	"../vec3.hpp"
@@ -1050,12 +1050,12 @@
 	"../gtc/constants.hpp"
 	"matrix_transform.inl"
 
-1462476197 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\matrix_transform.inl
+1461817179 c:\users\henriquejonas\desktop\tp1\lib\glm\gtc\matrix_transform.inl
 	"../geometric.hpp"
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1462476196 c:\users\henriquejonas\desktop\tp1\lib\glfw-3.1.2.bin.win32\include\glfw\glfw3.h
+1461817470 c:\users\henriquejonas\desktop\tp1\lib\glfw-3.1.2.bin.win32\include\glfw\glfw3.h
 	<stddef.h>
 	<OpenGL/gl3.h>
 	<OpenGL/gl3ext.h>
@@ -1074,39 +1074,39 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1462476198 source:c:\users\henriquejonas\desktop\tp1\main.cpp
+1462726369 source:c:\users\henriquejonas\desktop\tp1\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"game.h"
 	"resource_manager.h"
 
-1462476199 source:c:\users\henriquejonas\desktop\tp1\resource_manager.cpp
+1461862180 source:c:\users\henriquejonas\desktop\tp1\resource_manager.cpp
 	"resource_manager.h"
 
-1462476199 source:c:\users\henriquejonas\desktop\tp1\shader.cpp
+1461862116 source:c:\users\henriquejonas\desktop\tp1\shader.cpp
 	"shader.h"
 
-1462476199 source:c:\users\henriquejonas\desktop\tp1\sprite_renderer.cpp
+1461862309 source:c:\users\henriquejonas\desktop\tp1\sprite_renderer.cpp
 	"sprite_renderer.h"
 
-1462476199 source:c:\users\henriquejonas\desktop\tp1\texture.cpp
+1461862273 source:c:\users\henriquejonas\desktop\tp1\texture.cpp
 	"texture.h"
 
-1462476198 source:c:\users\henriquejonas\desktop\tp1\render_object.cpp
+1461850765 source:c:\users\henriquejonas\desktop\tp1\render_object.cpp
 	"render_object.h"
 
-1462476198 c:\users\henriquejonas\desktop\tp1\render_object.h
+1461850792 c:\users\henriquejonas\desktop\tp1\render_object.h
 	<GL/glew.h>
 	<glm.hpp>
 	"texture.h"
 	"sprite_renderer.h"
 
-1462477844 source:c:\users\henriquejonas\desktop\tp1\breakout_level.cpp
+1462727795 source:c:\users\henriquejonas\desktop\tp1\breakout_level.cpp
 	"breakout_level.h"
 	<fstream>
 	<sstream>
 
-1462477804 c:\users\henriquejonas\desktop\tp1\breakout_level.h
+1462726674 c:\users\henriquejonas\desktop\tp1\breakout_level.h
 	<GL/glew.h>
 	<glm.hpp>
 	<vector>
@@ -1114,16 +1114,16 @@
 	"sprite_renderer.h"
 	"resource_manager.h"
 
-1462481926 c:\users\henriquejonas\desktop\tp1\player.h
+1462727195 c:\users\henriquejonas\desktop\tp1\player.h
 	<glm.hpp>
 	"render_object.h"
 	"sprite_renderer.h"
 	"resource_manager.h"
 
-1462476198 source:c:\users\henriquejonas\desktop\tp1\player.cpp
+1462727594 source:c:\users\henriquejonas\desktop\tp1\player.cpp
 	"player.h"
 
-1462476199 c:\users\henriquejonas\desktop\tp1\text_renderer.h
+1461946319 c:\users\henriquejonas\desktop\tp1\text_renderer.h
 	<string>
 	<map>
 	<glm.hpp>
@@ -1132,18 +1132,18 @@
 	<ft2build.h>
 	"shader.h"
 
-1462476199 source:c:\users\henriquejonas\desktop\tp1\text_renderer.cpp
+1461946420 source:c:\users\henriquejonas\desktop\tp1\text_renderer.cpp
 	"text_renderer.h"
 
-1462476190 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\ft2build.h
+1461871549 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\ft2build.h
 	<freetype/config/ftheader.h>
 
-1462476189 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\freetype\config\ftheader.h
+1461871550 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\freetype\config\ftheader.h
 
-1462476188 source:c:\users\henriquejonas\desktop\tp1\ball.cpp
+1462727587 source:c:\users\henriquejonas\desktop\tp1\ball.cpp
 	"ball.h"
 
-1462476188 c:\users\henriquejonas\desktop\tp1\ball.h
+1462726727 c:\users\henriquejonas\desktop\tp1\ball.h
 	<glm.hpp>
 	"texture.h"
 	"render_object.h"
@@ -1152,6 +1152,6 @@
 1462478963 c:\users\henriquejonas\desktop\tp1\vector_direction.h
 	<glm.hpp>
 
-1462479776 c:\users\henriquejonas\desktop\tp1\vector_direction.hpp
+1462724500 c:\users\henriquejonas\desktop\tp1\vector_direction.hpp
 	<glm.hpp>
 

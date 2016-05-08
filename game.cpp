@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game(GLuint width, GLuint height) : width(width), height(height), state(GAME_ACTIVE), playerEnabled(GL_TRUE) {
+Game::Game(GLuint width, GLuint height) : width(width), height(height), state(GAME_START), playerEnabled(GL_TRUE) {
 
 }
 
@@ -47,7 +47,7 @@ void Game::init() {
 }
 
 void Game::movePlayer(GLfloat delta, double xpos, double ypos) {
-    if (this->state == GAME_ACTIVE && this->playerEnabled) {
+    if ((this->state == GAME_ACTIVE || this->state == GAME_PLAYER_DEAD) && this->playerEnabled) {
 
         if (xpos < 400)
             xpos = -(int)(this->width / 2) + xpos;
@@ -64,26 +64,33 @@ void Game::movePlayer(GLfloat delta, double xpos, double ypos) {
 }
 
 void Game::update(GLfloat delta) {
-    if (this->state == GAME_ACTIVE) {
+    if (this->state == GAME_ACTIVE || this->state == GAME_PLAYER_DEAD) {
         this->ball.move(delta, this->width);
         this->checkBlocksCollision();
         this->checkPlayerCollision();
 
+        // If player is dead???
         if (this->ball.position.y >= this->height) {
             this->player.lifes--;
             this->player.paddle->position = this->player.initialPos;
             this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
+            this->state = GAME_PLAYER_DEAD;
 
             if (this->player.lifes == 0)
                 this->reset();
         }
     }
+
+    if (this->levels[this->currentLevel].isCompleted()) {
+        this->nextLevel();
+    }
 }
 
 void Game::processInput(GLfloat delta) {
-    if (this->state == GAME_ACTIVE)
-        if (this->keys[GLFW_KEY_SPACE])
-            this->ball.isStuck = false;
+    if (this->keys[GLFW_KEY_SPACE]) {
+        this->ball.isStuck = false;
+        this->state = GAME_ACTIVE;
+    }
 }
 
 void Game::checkBlocksCollision() {
@@ -135,23 +142,32 @@ void Game::checkPlayerCollision() {
 }
 
 void Game::render() {
-    switch(this->state) {
-    case GAME_ACTIVE:
-        break;
-    case GAME_MENU:
-        break;
-    case GAME_WIN:
-        break;
-    case GAME_PAUSE:
-        break;
-    }
-
     renderer->drawSprite(ResourceManager::getTexture("background"), glm::vec2(0, 0), glm::vec2(this->width, this->height), 0.0f);
 
     this->levels[this->currentLevel].drawLevel(*renderer);
     this->player.draw(*renderer);
     this->ball.draw(*renderer);
-    this->printPlayerStatus();
+
+    switch(this->state) {
+        case GAME_PLAYER_DEAD:
+        case GAME_ACTIVE:
+            this->printPlayerStatus();
+            break;
+        case GAME_WIN:
+            textRenderer->drawText("VOCE GANHOU!!!", 270.0f, 350.0f, 0.7f, glm::vec3(0.81f, 0.71f, 0.23f));
+            textRenderer->drawText("PRESSIONE Q PARA SAIR...", 210.0f, 320.0f, 0.7f, glm::vec3(1.0f));
+            break;
+        case GAME_PAUSE:
+            textRenderer->drawText("JOGO PAUSADO...", 300.0f, 250.0f, 0.7f, glm::vec3(1.0f, 0.0f, 0.0f));
+            this->printPlayerStatus();
+            break;
+        case GAME_START:
+            textRenderer->drawText("BEM VINDO AO BREAKOUT - TP1 - CG", 160.0f, 250.0f, 0.6f, glm::vec3(1.0f, 1.0f, 0.0f));
+            textRenderer->drawText("PRESSIONE A TECLA DE ESPACO PARA JOGAR...", 100.0f, 220.0f, 0.6f, glm::vec3(1.0f));
+            break;
+        case GAME_NEXT_LEVEL:
+            break;
+    }
 }
 
 void Game::pauseOrContinue() {
@@ -168,14 +184,34 @@ void Game::reset() {
     this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
 }
 
-void Game::printPlayerStatus() {
-    ostringstream lifes, points;
+void Game::nextLevel() {
+    if (this->currentLevel == this->levels.size() - 1)
+        this->state = GAME_WIN;
+    else {
+        this->currentLevel++;
+        this->player.reset();
+        this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
+        this->state = GAME_NEXT_LEVEL;
+    }
+}
 
+void Game::printPlayerStatus() {
+    ostringstream lifes, points, level;
+
+    level << "Nivel: " << this->currentLevel + 1;
     lifes << "Vidas: " << this->player.lifes;
     points << "Pontos: " << this->player.points;
 
+    textRenderer->drawText(level.str(), 15.0f, 560.0f, 0.6f, glm::vec3(1.0f));
     textRenderer->drawText(lifes.str(), 25.0f, 25.0f, 0.5f, glm::vec3(1.0f));
     textRenderer->drawText(points.str(), 25.0f, 50.0f, 0.5f, glm::vec3(1.0f));
+}
+
+void Game::printGameStatus() {
+    this->player.printDebugData();
+    this->ball.printDebugData();
+    this->levels[this->currentLevel].printDebugData();
+    this->state = GAME_PAUSE;
 }
 
 CollisionData Game::checkCollision(Ball ball, RenderObject *object) {

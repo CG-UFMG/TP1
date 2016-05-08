@@ -50,7 +50,6 @@ int main() {
     glfwSetKeyCallback(window, keyCallback);
     glfwSetMouseButtonCallback(window, mouseCallback);
     glfwSetCursorEnterCallback(window, cursorEnterCallback);
-//    glfwSetCursorPosCallback(window, cursorPosCallback);
 
     game.init();
 
@@ -62,7 +61,7 @@ int main() {
 
         glfwPollEvents();
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         glfwGetCursorPos(window, &xpos, &ypos);
 
@@ -70,7 +69,7 @@ int main() {
         game.movePlayer(delta, xpos, ypos);
         game.update(delta);
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         game.render();
@@ -100,6 +99,8 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 void mouseCallback(GLFWwindow* window, int button, int action, int mods) {
     if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
         game.pauseOrContinue();
+    if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+        game.printGameStatus();
 }
 
 void cursorEnterCallback(GLFWwindow* window, int entered) {

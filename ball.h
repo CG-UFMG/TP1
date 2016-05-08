@@ -21,6 +21,7 @@ class Ball : public RenderObject {
         glm::vec2 move(GLfloat dt, GLuint screenWidth);
 
         void reset(glm::vec2 position, glm::vec2 velocity);
+        void printDebugData();
 };
 
 #endif

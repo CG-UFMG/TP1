@@ -20,6 +20,7 @@ class Player {
         GLuint sWidth, sHeight;
         GLuint points;
         GLuint lifes;
+        GLfloat velocity;
 
         RenderObject *paddle;
 
@@ -29,6 +30,7 @@ class Player {
         GLfloat move(GLfloat dt, double xpos, double ypos);
         void draw(SpriteRenderer &renderer);
         void reset();
+        void printDebugData();
 
 };
 

@@ -100,6 +100,16 @@ void BreakoutLevel::init(vector<vector<GLuint> > tileData, GLuint levelWidth, GL
     }
 }
 
+void BreakoutLevel::printDebugData() {
+    cout << endl;
+    cout << "======== Blocos ========" << endl;
+    for(vector<RenderObject>::iterator it = this->blocks.begin(); it != this->blocks.end(); ++it) {
+        cout << "Posicao - X: " << it->position.x << " Y: " << it->position.y << endl;
+        cout << "Tipo: " << (it->isSolid ? "Solido" : "Normal") << endl;
+        cout << "Destruido: " << (it->destroyed ? "Sim" : "Nao") << endl;
+    }
+}
+
 void BreakoutLevel::reset() {
     for(vector<RenderObject>::iterator it = this->blocks.begin(); it != this->blocks.end(); ++it)
         it->destroyed = GL_FALSE;

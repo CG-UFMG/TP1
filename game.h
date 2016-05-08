@@ -20,8 +20,10 @@ const glm::vec2 INITIAL_BALL_VELOCITY(50.0f, -220.0f);
 enum GameState {
     GAME_ACTIVE,
     GAME_PAUSE,
-    GAME_MENU,
-    GAME_WIN
+    GAME_WIN,
+    GAME_START,
+    GAME_NEXT_LEVEL,
+    GAME_PLAYER_DEAD
 };
 
 struct CollisionData {
@@ -57,7 +59,8 @@ class Game {
         void render();
         void pauseOrContinue();
         void reset();
-
+        void nextLevel();
+        void printGameStatus();
 
     private:
         CollisionData checkCollision(Ball ball, RenderObject *object);

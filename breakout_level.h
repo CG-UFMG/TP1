@@ -36,6 +36,7 @@ class BreakoutLevel {
         void loadLevel(const GLchar *file, GLuint levelWidth, GLuint levelHeight);
         void drawLevel(SpriteRenderer &renderer);
         void reset();
+        void printDebugData();
 
         GLboolean isCompleted();
     private:

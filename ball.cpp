@@ -29,6 +29,13 @@ glm::vec2 Ball::move(GLfloat dt, GLuint screenWidth) {
     return this->position;
 }
 
+void Ball::printDebugData() {
+    cout << endl;
+    cout << "======== Bola ========" << endl;
+    cout << "Velocidade - X: " << this->velocity.x << " / Y: " << this->velocity.y << endl;
+    cout << "Posicao - X: " << this->position.x << " / Y: " << this->position.y << endl;
+}
+
 void Ball::reset(glm::vec2 position, glm::vec2 velocity) {
     this->position = position;
     this->velocity = velocity;
