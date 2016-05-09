@@ -37,13 +37,6 @@ void Game::init() {
     renderer = new SpriteRenderer(ResourceManager::getShader("sprite"));
     textRenderer = new TextRenderer(ResourceManager::getShader("text"), "fonts/Arcade.ttf");
 
-    // Load levels
-    BreakoutLevel basic;
-    basic.loadLevel("levels/4.blv", this->width, this->height * 0.5);
-    basic.loadLevel("levels/3.blv", this->width, this->height * 0.5);
-    basic.loadLevel("levels/2.blv", this->width, this->height * 0.5);
-    basic.loadLevel("levels/1.blv", this->width, this->height * 0.55);
-
     // Load player
     player = Player(this->width, this->height);
 
@@ -51,8 +44,12 @@ void Game::init() {
     glm::vec2 ballPos = player.paddle->position + glm::vec2(PLAYER_SIZE.x / 2 - BALL_RADIUS, -BALL_RADIUS * 2);
     ball = Ball(ballPos, BALL_RADIUS, INITIAL_BALL_VELOCITY, ResourceManager::getTexture("ball"));
 
-    // Load basic level
-    this->levels.push_back(basic);
+    // Load levels
+    this->levels.push_back(BreakoutLevel("levels/1.blv", this->width, this->height * 0.5));
+    this->levels.push_back(BreakoutLevel("levels/2.blv", this->width, this->height * 0.5));
+    this->levels.push_back(BreakoutLevel("levels/3.blv", this->width, this->height * 0.5));
+    this->levels.push_back(BreakoutLevel("levels/4.blv", this->width, this->height * 0.5));
+
     this->currentLevel = 0;
 }
 
@@ -76,6 +73,7 @@ void Game::movePlayer(GLfloat delta, double xpos, double ypos) {
 void Game::update(GLfloat delta) {
     if (this->state == GAME_ACTIVE || this->state == GAME_PLAYER_DEAD) {
         this->ball.move(delta, this->width);
+        this->levels[this->currentLevel].moveBlocks(delta);
         this->updatePowerUps(delta);
         this->checkBlocksCollision();
         this->checkPlayerCollision();
@@ -156,6 +154,7 @@ void Game::checkPowerUpsCollision() {
                 it->destroyed = GL_TRUE;
             else if (it->checkCollision(this->player.paddle).isCollision) {
                 this->activePowerUp(&*it);
+                this->soundEngine->play2D("audio/powerup.wav");
                 it->destroyed = GL_TRUE;
                 it->active = GL_TRUE;
             }
@@ -219,6 +218,7 @@ void Game::reset() {
     this->levels[this->currentLevel].reset();
     this->player.reset();
     this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
+    this->state = GAME_START;
 }
 
 void Game::checkNextLevel() {
@@ -262,7 +262,7 @@ void Game::spawnPowerUps(RenderObject *object) {
     if (PowerUp::spawnChance(60))
         this->powerUps.push_back(PowerUp("pass", glm::vec3(0.5f, 1.0f, 0.5f), 10.0f, object->position, ResourceManager::getTexture("pass")));
     if (PowerUp::spawnChance(60))
-        this->powerUps.push_back(PowerUp("pad-size-increase",glm::vec3(1.0f, 0.6f, 0.4), 10.0f, object->position, ResourceManager::getTexture("increase")));
+        this->powerUps.push_back(PowerUp("pad-size-increase",glm::vec3(1.0f, 0.6f, 0.4), 20.0f, object->position, ResourceManager::getTexture("increase")));
 }
 
 void Game::renderPowerUps() {

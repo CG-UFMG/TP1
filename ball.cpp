@@ -15,11 +15,11 @@ glm::vec2 Ball::move(GLfloat dt, GLuint screenWidth) {
         if (this->position.x <= 0.0f) {
             this->velocity.x = -this->velocity.x;
             this->position.x = 0.0f;
-        }
-        else if (this->position.x + this->sizeOf.x >= screenWidth) {
+        } else if (this->position.x + this->sizeOf.x >= screenWidth) {
             this->velocity.x = -this->velocity.x;
             this->position.x = screenWidth - this->sizeOf.x;
         }
+
         if (this->position.y <= 0.0f) {
             this->velocity.y = -this->velocity.y;
             this->position.y = 0.0f;

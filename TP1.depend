@@ -556,10 +556,10 @@
 1424014283 c:\users\henrique\desktop\tp1\lib\glm\gtc\type_ptr.inl
 	<cstring>
 
-1462749921 source:c:\users\henriquejonas\desktop\tp1\game.cpp
+1462753550 source:c:\users\henriquejonas\desktop\tp1\game.cpp
 	"game.h"
 
-1462749027 c:\users\henriquejonas\desktop\tp1\game.h
+1462751646 c:\users\henriquejonas\desktop\tp1\game.h
 	"resource_manager.h"
 	"sprite_renderer.h"
 	"breakout_level.h"
@@ -1104,15 +1104,16 @@
 	"sprite_renderer.h"
 	"vector_direction.hpp"
 
-1462730386 source:c:\users\henriquejonas\desktop\tp1\breakout_level.cpp
+1462753624 source:c:\users\henriquejonas\desktop\tp1\breakout_level.cpp
 	"breakout_level.h"
 	<fstream>
 	<sstream>
 
-1462726674 c:\users\henriquejonas\desktop\tp1\breakout_level.h
+1462753596 c:\users\henriquejonas\desktop\tp1\breakout_level.h
 	<GL/glew.h>
 	<glm.hpp>
 	<vector>
+	<stdlib.h>
 	"render_object.h"
 	"sprite_renderer.h"
 	"resource_manager.h"
@@ -1143,7 +1144,7 @@
 
 1461871550 c:\users\henriquejonas\desktop\tp1\lib\freetype\include\freetype\config\ftheader.h
 
-1462749158 source:c:\users\henriquejonas\desktop\tp1\ball.cpp
+1462751924 source:c:\users\henriquejonas\desktop\tp1\ball.cpp
 	"ball.h"
 
 1462749183 c:\users\henriquejonas\desktop\tp1\ball.h
