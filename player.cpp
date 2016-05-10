@@ -24,10 +24,13 @@ void Player::draw(SpriteRenderer &renderer) {
     this->paddle->draw(renderer);
 }
 
-void Player::reset() {
+void Player::reset(GLboolean fullReset) {
     this->paddle->position = initialPos;
-    this->points = 0;
-    this->lifes = MAX_LIFES;
+
+    if (fullReset) {
+        this->points = 0;
+        this->lifes = MAX_LIFES;
+    }
 }
 
 void Player::printDebugData() {

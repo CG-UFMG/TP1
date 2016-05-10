@@ -1118,13 +1118,13 @@
 	"sprite_renderer.h"
 	"resource_manager.h"
 
-1462727195 c:\users\henriquejonas\desktop\tp1\player.h
+1462843208 c:\users\henriquejonas\desktop\tp1\player.h
 	<glm.hpp>
 	"render_object.h"
 	"sprite_renderer.h"
 	"resource_manager.h"
 
-1462727594 source:c:\users\henriquejonas\desktop\tp1\player.cpp
+1462843197 source:c:\users\henriquejonas\desktop\tp1\player.cpp
 	"player.h"
 
 1461946319 c:\users\henriquejonas\desktop\tp1\text_renderer.h

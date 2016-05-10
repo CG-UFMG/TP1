@@ -138,7 +138,7 @@ void Game::checkPlayerCollision() {
         glm::vec2 oldVelocity = this->ball.velocity;
 
         this->ball.velocity.x = INITIAL_BALL_VELOCITY.x * percentage * strength;
-        this->ball.velocity.y = -this->ball.velocity.y;
+        this->ball.velocity.y = -this->ball.velocity.y * (1 + percentage);
         this->ball.velocity = glm::normalize(this->ball.velocity) * glm::length(oldVelocity);
         this->ball.velocity.y = -1 * abs(this->ball.velocity.y);
         this->ball.isStuck = this->ball.isStick;
@@ -202,6 +202,8 @@ void Game::render() {
             textRenderer->drawText("PRESSIONE A TECLA DE ESPACO PARA JOGAR...", 100.0f, 220.0f, 0.6f, glm::vec3(1.0f));
             break;
         case GAME_NEXT_LEVEL:
+            this->printPlayerStatus();
+            textRenderer->drawText("PRESSIONE A TECLA DE ESPACO PARA JOGAR...", 100.0f, 220.0f, 0.6f, glm::vec3(1.0f));
             break;
     }
 }
@@ -215,8 +217,11 @@ void Game::pauseOrContinue() {
 
 void Game::reset() {
     this->currentLevel = 0;
-    this->levels[this->currentLevel].reset();
-    this->player.reset();
+
+    for(vector<BreakoutLevel>::iterator it = this->levels.begin(); it != this->levels.end(); ++it)
+        it->reset();
+
+    this->player.reset(GL_TRUE);
     this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
     this->state = GAME_START;
 }
@@ -227,7 +232,7 @@ void Game::checkNextLevel() {
             this->state = GAME_WIN;
         else {
             this->currentLevel++;
-            this->player.reset();
+            this->player.reset(GL_FALSE);
             this->ball.reset(this->ball.initialPos, INITIAL_BALL_VELOCITY);
             this->state = GAME_NEXT_LEVEL;
             this->soundEngine->play2D("audio/win.wav");
