@@ -1,0 +1,14 @@
+install:
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\ball.cpp -o obj\ball.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\breakout_level.cpp -o obj\breakout_level.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\game.cpp -o obj\game.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\main.cpp -o obj\main.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\player.cpp -o obj\player.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\power_up.cpp -o obj\power_up.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\render_object.cpp -o obj\render_object.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\resource_manager.cpp -o obj\resource_manager.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\shader.cpp -o obj\shader.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\sprite_renderer.cpp -o obj\sprite_renderer.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\text_renderer.cpp -o obj\text_renderer.o
+	g++ -Wall -fexceptions -O2 -Ilib\glfw-3.1.2.bin.WIN32\include -Ilib\soil\src -Ilib\glew-1.13.0\include -Ilib\glm -Ilib\freetype\include -Ilib\irrklang\include -c src\texture.cpp -o obj\texture.o
+	g++ -Llib\glfw-3.1.2.bin.WIN32\lib-mingw -Llib\soil\lib -Llib\glew-1.13.0\lib\Release\Win32 -Llib\freetype\bin -Llib\irrklang\lib -o bin\TP1.exe obj\ball.o obj\breakout_level.o obj\game.o obj\main.o obj\player.o obj\power_up.o obj\render_object.o obj\resource_manager.o obj\shader.o obj\sprite_renderer.o obj\text_renderer.o obj\texture.o  -s  -lglew32s -lglfw3 -lgdi32 -lSOIL -lopengl32 -lfreetype6 -lirrklang
